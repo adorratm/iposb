@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pancarosb.k12.tr/tr/sitemap.xml
+Sitemap: https://pancarosb.k12.tr/tr/sitemapindex.xml
