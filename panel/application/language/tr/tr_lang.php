@@ -1,4 +1,6 @@
 <?php
+$lang["virtualTour"] = "Sanal Tur";
+$lang["corporate"] = "Kurumsal";
 $lang['downloadFromAppStore'] = "App Store";
 $lang['downloadFromAppStore2'] = "'dan";
 $lang['downloadFromAppStore3'] = "İndirin";

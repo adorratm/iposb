@@ -89,17 +89,17 @@
                     <h3><?= lang("departmentOne") ?> <?= lang("contactInformation") ?>:</h3>
                     <ul class="info">
                         <li>
-                            <i class="bx bxs-map"></i>
+                            <i class="fa fa-map"></i>
                             <a rel="dofollow" href="http://maps.google.com/maps?q=<?= urlencode(clean($settings->address)) ?>" target="_blank" title="<?= lang("address") ?>"><?= clean($settings->address) ?></a>
                             <a rel="dofollow" href="http://maps.google.com/maps?q=<?= urlencode(clean($settings->address)) ?>" target="_blank" title="<?= lang("map") ?>"><?= lang("map") ?></a>
                         </li>
                         <li>
-                            <i class="bx bx-phone"></i>
+                            <i class="fa fa-phone"></i>
                             <a rel="dofollow" title="<?= lang("phone") ?>" href="tel:<?= $settings->phone_1 ?>"><?= $settings->phone_1 ?></a>
                             <a rel="dofollow" title="<?= lang("phone") ?>" href="tel:<?= $settings->phone_2 ?>"><?= $settings->phone_2 ?></a>
                         </li>
                         <li>
-                            <i class="bx bx-mail-send"></i>
+                            <i class="fa fa-envelope-open"></i>
                             <a rel="dofollow" title="Email" href="mailto:<?= $settings->email ?>"><?= $settings->email ?></a>
                         </li>
                     </ul>
@@ -107,50 +107,50 @@
                         <ul class="justify-content-center justify-content-md-start">
                             <?php if (!empty($settings->facebook)) : ?>
                                 <li>
-                                    <a rel="nofollow" href="<?= $settings->facebook ?>" title="Facebook" target="_blank">
-                                        <i class='bx bxl-facebook color bx-2x'></i>
+                                    <a rel="dofollow" href="<?= $settings->facebook ?>" title="Facebook" target="_blank">
+                                        <i class='fa fa-facebook color fa-2x'></i>
                                     </a>
                                 </li>
                             <?php endif ?>
                             <?php if (!empty($settings->twitter)) : ?>
                                 <li>
-                                    <a rel="nofollow" href="<?= $settings->twitter ?>" title="Twitter" target="_blank">
-                                        <i class='bx bxl-twitter color bx-2x'></i>
+                                    <a rel="dofollow" href="<?= $settings->twitter ?>" title="Twitter" target="_blank">
+                                        <i class='fa fa-twitter color fa-2x'></i>
                                     </a>
                                 </li>
                             <?php endif ?>
                             <?php if (!empty($settings->instagram)) : ?>
                                 <li>
-                                    <a rel="nofollow" href="<?= $settings->instagram ?>" title="Instagram" target="_blank">
-                                        <i class='bx bxl-instagram color bx-2x'></i>
+                                    <a rel="dofollow" href="<?= $settings->instagram ?>" title="Instagram" target="_blank">
+                                        <i class='fa fa-instagram color fa-2x'></i>
                                     </a>
                                 </li>
                             <?php endif ?>
                             <?php if (!empty($settings->linkedin)) : ?>
                                 <li>
-                                    <a rel="nofollow" href="<?= $settings->linkedin ?>" title="Linkedin" target="_blank">
-                                        <i class='bx bxl-linkedin color bx-2x'></i>
+                                    <a rel="dofollow" href="<?= $settings->linkedin ?>" title="Linkedin" target="_blank">
+                                        <i class='fa fa-linkedin color fa-2x'></i>
                                     </a>
                                 </li>
                             <?php endif ?>
                             <?php if (!empty($settings->youtube)) : ?>
                                 <li>
-                                    <a rel="nofollow" href="<?= $settings->youtube ?>" title="Youtube" target="_blank">
-                                        <i class='bx bxl-youtube color bx-2x'></i>
+                                    <a rel="dofollow" href="<?= $settings->youtube ?>" title="Youtube" target="_blank">
+                                        <i class='fa fa-youtube color fa-2x'></i>
                                     </a>
                                 </li>
                             <?php endif ?>
                             <?php if (!empty($settings->medium)) : ?>
                                 <li>
-                                    <a rel="nofollow" href="<?= $settings->medium ?>" title="Medium" target="_blank">
-                                        <i class='bx bxl-medium color bx-2x'></i>
+                                    <a rel="dofollow" href="<?= $settings->medium ?>" title="Medium" target="_blank">
+                                        <i class='fa fa-medium color fa-2x'></i>
                                     </a>
                                 </li>
                             <?php endif ?>
                             <?php if (!empty($settings->pinterest)) : ?>
                                 <li>
-                                    <a rel="nofollow" href="<?= $settings->pinterest ?>" title="Pinterest" target="_blank">
-                                        <i class='bx bxl-pinterest color bx-2x'></i>
+                                    <a rel="dofollow" href="<?= $settings->pinterest ?>" title="Pinterest" target="_blank">
+                                        <i class='fa fa-pinterest color fa-2x'></i>
                                     </a>
                                 </li>
                             <?php endif ?>
@@ -165,17 +165,17 @@
                     <h3><?= lang("departmentTwo") ?> <?= lang("contactInformation") ?>:</h3>
                     <ul class="info">
                         <li>
-                            <i class="bx bxs-map"></i>
+                            <i class="fa fa-map"></i>
                             <a rel="dofollow" href="http://maps.google.com/maps?q=<?= urlencode(clean($settings->address_2)) ?>" target="_blank" title="<?= lang("address") ?>"><?= clean($settings->address_2) ?></a>
                             <a rel="dofollow" href="http://maps.google.com/maps?q=<?= urlencode(clean($settings->address_2)) ?>" target="_blank" title="<?= lang("map") ?>"><?= lang("map") ?></a>
                         </li>
                         <li>
-                            <i class="bx bx-phone"></i>
+                            <i class="fa fa-phone"></i>
                             <a rel="dofollow" title="<?= lang("phone") ?>" href="tel:<?= $settings->phone_1 ?>"><?= $settings->phone_1 ?></a>
                             <a rel="dofollow" title="<?= lang("phone") ?>" href="tel:<?= $settings->phone_3 ?>"><?= $settings->phone_3 ?></a>
                         </li>
                         <li>
-                            <i class="bx bx-mail-send"></i>
+                            <i class="fa fa-envelope-open"></i>
                             <a rel="dofollow" title="Email" href="mailto:<?= $settings->email ?>"><?= $settings->email ?></a>
                         </li>
                     </ul>
@@ -183,50 +183,50 @@
                         <ul class="justify-content-center justify-content-md-start">
                             <?php if (!empty($settings->facebook)) : ?>
                                 <li>
-                                    <a rel="nofollow" href="<?= $settings->facebook ?>" title="Facebook" target="_blank">
-                                        <i class='bx bxl-facebook color bx-2x'></i>
+                                    <a rel="dofollow" href="<?= $settings->facebook ?>" title="Facebook" target="_blank">
+                                        <i class='fa fa-facebook color fa-2x'></i>
                                     </a>
                                 </li>
                             <?php endif ?>
                             <?php if (!empty($settings->twitter)) : ?>
                                 <li>
-                                    <a rel="nofollow" href="<?= $settings->twitter ?>" title="Twitter" target="_blank">
-                                        <i class='bx bxl-twitter color bx-2x'></i>
+                                    <a rel="dofollow" href="<?= $settings->twitter ?>" title="Twitter" target="_blank">
+                                        <i class='fa fa-twitter color fa-2x'></i>
                                     </a>
                                 </li>
                             <?php endif ?>
                             <?php if (!empty($settings->instagram)) : ?>
                                 <li>
-                                    <a rel="nofollow" href="<?= $settings->instagram ?>" title="Instagram" target="_blank">
-                                        <i class='bx bxl-instagram color bx-2x'></i>
+                                    <a rel="dofollow" href="<?= $settings->instagram ?>" title="Instagram" target="_blank">
+                                        <i class='fa fa-instagram color fa-2x'></i>
                                     </a>
                                 </li>
                             <?php endif ?>
                             <?php if (!empty($settings->linkedin)) : ?>
                                 <li>
-                                    <a rel="nofollow" href="<?= $settings->linkedin ?>" title="Linkedin" target="_blank">
-                                        <i class='bx bxl-linkedin color bx-2x'></i>
+                                    <a rel="dofollow" href="<?= $settings->linkedin ?>" title="Linkedin" target="_blank">
+                                        <i class='fa fa-linkedin color fa-2x'></i>
                                     </a>
                                 </li>
                             <?php endif ?>
                             <?php if (!empty($settings->youtube)) : ?>
                                 <li>
-                                    <a rel="nofollow" href="<?= $settings->youtube ?>" title="Youtube" target="_blank">
-                                        <i class='bx bxl-youtube color bx-2x'></i>
+                                    <a rel="dofollow" href="<?= $settings->youtube ?>" title="Youtube" target="_blank">
+                                        <i class='fa fa-youtube color fa-2x'></i>
                                     </a>
                                 </li>
                             <?php endif ?>
                             <?php if (!empty($settings->medium)) : ?>
                                 <li>
-                                    <a rel="nofollow" href="<?= $settings->medium ?>" title="Medium" target="_blank">
-                                        <i class='bx bxl-medium color bx-2x'></i>
+                                    <a rel="dofollow" href="<?= $settings->medium ?>" title="Medium" target="_blank">
+                                        <i class='fa fa-medium color fa-2x'></i>
                                     </a>
                                 </li>
                             <?php endif ?>
                             <?php if (!empty($settings->pinterest)) : ?>
                                 <li>
-                                    <a rel="nofollow" href="<?= $settings->pinterest ?>" title="Pinterest" target="_blank">
-                                        <i class='bx bxl-pinterest color bx-2x'></i>
+                                    <a rel="dofollow" href="<?= $settings->pinterest ?>" title="Pinterest" target="_blank">
+                                        <i class='fa fa-pinterest color fa-2x'></i>
                                     </a>
                                 </li>
                             <?php endif ?>

@@ -551,11 +551,11 @@
         }
 
         .react-header .react-menus li a:hover {
-            color: #d2093c !important
+            color: #0564ad !important
         }
 
         .react-header .react-menus li a.react-current-page {
-            color: #d2093c !important
+            color: #0564ad !important
         }
 
         .react-header .react-main-menu {
@@ -775,7 +775,7 @@
         .react-header .topbar-area.style1 {
             background: #00306e;
             color: #fff;
-            padding: 5px 0;
+            padding: 10px 0;
             font-size: 14px
         }
 
@@ -1667,7 +1667,7 @@
             margin-bottom: 22px;
             font-weight: 400;
             line-height: 32px;
-            background: #d2093c
+            background: #0564ad
         }
 
         .home-sliders .slider-content .slider-desc {
@@ -1685,9 +1685,9 @@
         }
 
         .home-sliders .slider-content .slider-btn .react-btn-border:hover {
-            background: #d2093c;
+            background: #0564ad;
             color: #fff;
-            border-color: #d2093c
+            border-color: #0564ad
         }
 
         .home-sliders .event__video-btn--play-btn {
@@ -2337,7 +2337,7 @@
         .react__title__section-all h6 {
             font-size: 16px;
             line-height: 20px;
-            color: #d2093c;
+            color: #0564ad;
             font-weight: 600;
             margin: 0 0 12px
         }
@@ -2422,7 +2422,7 @@
         }
 
         .about__area h2 em {
-            color: #d2093c;
+            color: #0564ad;
             font-style: normal
         }
 
@@ -2450,7 +2450,7 @@
         }
 
         .about__area.about__area_one p a {
-            color: #d2093c;
+            color: #0564ad;
             text-decoration: underline !important;
             font-weight: 700
         }
@@ -2484,9 +2484,9 @@
         }
 
         .about__area.about__area_one ul li .more-about:hover {
-            background: #d2093c;
+            background: #0564ad;
             color: #fff;
-            border-color: #d2093c
+            border-color: #0564ad
         }
 
         .about__area.about__area_one ul li.last-li {
@@ -2511,7 +2511,7 @@
         }
 
         .about__area.about__area_one ul li.last-li a:hover {
-            color: #d2093c
+            color: #0564ad
         }
 
         .about2__area h2 {
@@ -2622,7 +2622,7 @@
         .about2__area.about2__area .about__content h6 {
             font-size: 16px;
             line-height: 20px;
-            color: #d2093c;
+            color: #0564ad;
             font-weight: 600;
             margin: 0 0 12px
         }
@@ -2820,14 +2820,14 @@
 
         .react_featured_online .item__inner .react-content h5 {
             margin: 0;
-            color: #d2093c;
+            color: #0564ad;
             font-size: 20px;
             font-weight: 600
         }
 
         .react_featured_online .item__inner .react-content h3 {
             margin: 10px 0 18px;
-            color: #d2093c;
+            color: #0564ad;
             font-size: 20px;
             font-weight: 600
         }
@@ -2885,7 +2885,7 @@
         .accordion__area .accordion__wrapper-1 h6 {
             font-size: 16px;
             line-height: 20px;
-            color: #d2093c;
+            color: #0564ad;
             font-weight: 600;
             margin: 0
         }
@@ -3035,7 +3035,7 @@
         .instructor__area .container .instructors_lefts h6 {
             font-size: 16px;
             line-height: 20px;
-            color: #d2093c;
+            color: #0564ad;
             font-weight: 600;
             margin: 0
         }
@@ -3416,7 +3416,7 @@
         .react-clients .react__title__section h6 {
             font-size: 16px;
             line-height: 20px;
-            color: #d2093c;
+            color: #0564ad;
             font-weight: 600;
             margin: 0
         }
@@ -3581,8 +3581,8 @@
         }
 
         .react-clients.home-testimonial .client-slider.owl-carousel .owl-nav [class*=owl-]:hover {
-            background: #d2093c;
-            border-color: #d2093c
+            background: #0564ad;
+            border-color: #0564ad
         }
 
         .react-blog__area.graybg-home {
@@ -3594,7 +3594,7 @@
         }
 
         .react-blog__area.graybg-home .b_date {
-            background: #d2093c
+            background: #0564ad
         }
 
         .react-blog__area.graybg-home .blog__card--title a {
@@ -3602,7 +3602,7 @@
         }
 
         .react-blog__area.graybg-home .blog__card--title a:hover {
-            color: #d2093c
+            color: #0564ad
         }
 
         .react-blog__area .blog__subtitle {
@@ -3622,7 +3622,7 @@
         .react-blog__area .react__title__section h6 {
             font-size: 16px;
             line-height: 20px;
-            color: #d2093c;
+            color: #0564ad;
             font-weight: 600;
             margin: 0
         }
@@ -3672,7 +3672,7 @@
         .react-blog__area .blog__card--date {
             font-size: 16px;
             font-weight: 400;
-            color: #d2093c
+            color: #0564ad
         }
 
         .react-blog__area .blog__card--title {
@@ -3861,9 +3861,9 @@
         }
 
         .campus_sec .more-about:hover {
-            background: #d2093c;
+            background: #0564ad;
             color: #fff;
-            border-color: #d2093c
+            border-color: #0564ad
         }
 
         .popular__course__area {
@@ -3907,11 +3907,11 @@
         }
 
         .popular__course__area .course__item .course__inner ul li:first-child {
-            color: #d2093c
+            color: #0564ad
         }
 
         .popular__course__area .course__item .course__inner ul li:first-child:before {
-            background: #d2093c
+            background: #0564ad
         }
 
         .popular__course__area .course__item .course__inner ul li:last-child {
@@ -3932,7 +3932,7 @@
         }
 
         .popular__course__area .course__item .react-course-title a:hover {
-            color: #d2093c
+            color: #0564ad
         }
 
         .popular__course__area .course__item .course__card-icon {
@@ -3957,7 +3957,7 @@
 
         .popular__course__area .course__item .course__card-icon .react__user {
             font-size: 20px;
-            color: #d2093c;
+            color: #0564ad;
             font-weight: 700
         }
 
@@ -3978,13 +3978,13 @@
         }
 
         .popular__course__area .view-courses:hover {
-            background: #d2093c;
+            background: #0564ad;
             color: #fff;
-            border-color: #d2093c
+            border-color: #0564ad
         }
 
         .count__area .count__width {
-            background: #d2093c;
+            background: #0564ad;
             padding-top: 50px;
             padding-bottom: 50px
         }
@@ -4052,12 +4052,12 @@
             font-weight: 700;
             font-style: normal;
             display: block;
-            color: #d2093c
+            color: #0564ad
         }
 
         .react-upcoming__event .event__card .event_time {
             font-size: 16px;
-            color: #d2093c;
+            color: #0564ad;
             line-height: 22px;
             margin: 28px 0 4px
         }
@@ -4109,9 +4109,9 @@
         }
 
         .react-upcoming__event .event__card .event__card--link:hover {
-            background: #d2093c;
+            background: #0564ad;
             color: #fff;
-            border-color: #d2093c
+            border-color: #0564ad
         }
 
         .react-upcoming__event .owl-dots {
@@ -4129,7 +4129,7 @@
         }
 
         .react-upcoming__event .owl-dots .owl-dot.active span {
-            background: #d2093c
+            background: #0564ad
         }
 
         .back__course__page_grid .shorting__course {
@@ -4651,7 +4651,7 @@
         body.courses-grid-page .react-course-filter .single-studies .inner-course .case-img a {
             left: 22px;
             right: auto;
-            background: #d2093c
+            background: #0564ad
         }
 
         body.courses-grid-page .react-course-filter .single-studies .inner-course .case-content .react-ratings {
@@ -5011,7 +5011,7 @@
         .blog-post-single-page .react-course-filter .single-studies .inner-course .case-content em {
             display: block;
             font-size: 16px;
-            color: #d2093c;
+            color: #0564ad;
             font-style: normal
         }
 
@@ -6521,7 +6521,7 @@
 
         .react-sidebar .widget.get-back-course .price li:nth-child(3) {
             font-size: 13px;
-            color: #d2093c;
+            color: #0564ad;
             background: rgba(210, 9, 60, .06);
             border-radius: 4px;
             margin-left: 10px;
@@ -7566,7 +7566,6 @@
 
         .react-footer .footer-top .footer-widget .footer-address li a {
             color: #b7b7b9;
-            margin-left: 10px;
             line-height: 24px;
             font-size: 18px
         }
@@ -7678,20 +7677,20 @@
         .react-footer.home-main .copyright .react-copy-left a,
         .react-footer.home-main .footer-top .footer-menu li a:hover,
         .react-footer.home-main .footer-top .footer-widget .footer-address li a:hover {
-            color: #d2093c
+            color: #0564ad
         }
 
         .react-footer.home-main .footer-top .footer-menu li a:after {
-            background: #d2093c
+            background: #0564ad
         }
 
         .react-footer.home-main .social-links li a:hover {
-            background: #d2093c;
-            border-color: #d2093c
+            background: #0564ad;
+            border-color: #0564ad
         }
 
         .react-footer.home-main .footer-top .footer3__form-1 {
-            background-color: #d2093c
+            background-color: #0564ad
         }
 
         .social-links li {
@@ -7706,7 +7705,7 @@
             display: block;
             width: 44px;
             height: 44px;
-            line-height: 43px;
+            line-height: 42px;
             text-align: center;
             transition: all .7s ease 0s;
             border-radius: 50%
@@ -7804,7 +7803,7 @@
         }
 
         #backscrollUp.home {
-            background: #d2093c
+            background: #0564ad
         }
 
         #backscrollUp span {
