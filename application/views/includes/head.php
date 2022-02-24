@@ -852,7 +852,7 @@
             position: absolute;
             z-index: 1;
             left: 50%;
-            top: 50%;
+            top: 80%;
             transform: translate(-50%, -50%)
         }
 
@@ -904,7 +904,7 @@
         .event__video-btn--play-btn i {
             z-index: 2;
             position: relative;
-            top: 9px;
+            top: 6px;
             font-size: 35px
         }
 
@@ -1647,14 +1647,16 @@
         .home-sliders .slider-content {
             position: absolute;
             top: 50%;
-            transform: translateY(-50%)
+            transform: translateY(-50%);
+            right:10%;
+            left:10%;
         }
 
         .home-sliders .slider-content .slider-title {
-            font-size: 70px;
+            font-size: 50px;
             margin-bottom: 15px;
             color: #fff;
-            line-height: 74px;
+            line-height: 70px;
             font-weight: 700;
             display: block;
             margin-top: 20px
@@ -1720,7 +1722,7 @@
         }
 
         .home-sliders .owl-nav [class*=owl-]:before {
-            content: "\35";
+            content: "\f105";
             font-family: "Font Awesome 6 Free",sans-serif;
             font-weight: 900;
             position: absolute;
@@ -1746,7 +1748,7 @@
         }
 
         .home-sliders .owl-nav [class*=owl-].owl-prev:before {
-            content: '\34'
+            content: '\f104'
         }
 
         .home-sliders .owl-nav [class*=owl-].owl-prev span {
@@ -1764,7 +1766,7 @@
         }
 
         .home-sliders .event__video-btn--play {
-            right: 28%;
+            right: 20%;
             left: auto
         }
 
@@ -8023,6 +8025,8 @@
         .react-login-page .row.align-center {
             align-items: center
         }
+
+        .home-sliders.owl-carousel,.home-sliders.owl-carousel .owl-stage {max-height: 770px; }
     </style>
 
     <link rel="preload" type="text/css" href="<?= asset_url("public/css/custom-spacing.css") ?>" as="style" onload="this.onload=null;this.rel='stylesheet'">

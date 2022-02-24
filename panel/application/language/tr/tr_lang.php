@@ -1,4 +1,5 @@
 <?php
+$lang["academicDepartments"] = "Bölümler";
 $lang["virtualTour"] = "Sanal Tur";
 $lang["corporate"] = "Kurumsal";
 $lang['downloadFromAppStore'] = "App Store";

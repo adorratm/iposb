@@ -82,7 +82,7 @@ class Slides extends MY_Controller
             echo json_encode(["success" => false, "title" => "Başarısız!", "message" => "Slayt Eklenirken Hata Oluştu. Slayt Görseli Seçtiğinizden Emin Olup, Lütfen Tekrar Deneyin."]);
             die();
         endif;
-        $image = upload_picture("img_url", "uploads/$this->viewFolder",["width" => 1050,"height" => 600]);
+        $image = upload_picture("img_url", "uploads/$this->viewFolder",["width" => 1920,"height" => 770]);
         if ($image["success"]) :
             $data["img_url"] = $image["file_name"];
         else :
@@ -123,7 +123,7 @@ class Slides extends MY_Controller
         endif;
         $data["img_url"] = $slide->img_url;
         if (!empty($_FILES["img_url"]["name"])) :
-            $image = upload_picture("img_url", "uploads/$this->viewFolder",["width" => 1050,"height" => 600]);
+            $image = upload_picture("img_url", "uploads/$this->viewFolder",["width" => 1920,"height" => 770]);
             if ($image["success"]) :
                 $data["img_url"] = $image["file_name"];
                 if (!empty($slide->img_url)) :

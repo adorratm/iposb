@@ -10,33 +10,33 @@
 *
 **/
 
-(function($) {
+(function ($) {
     "use strict";
 
     //Menu Code Here
     $("#backmenu").backResponsiveMenu({
-        resizeWidth: '991', 
-        animationSpeed: 'medium', 
-        accoridonExpAll: false 
+        resizeWidth: '991',
+        animationSpeed: 'medium',
+        accoridonExpAll: false
     });
 
     //Menu Active Here
-    var path = window.location.href; 
-    $('.react-menus li a').each(function() {
+    var path = window.location.href;
+    $('.react-menus li a').each(function () {
         if (this.href === path) {
             $(this).addClass('react-current-page');
         }
     });
-    
+
     // Sticky Menu
     var header = $('.react-header');
     var win = $(window);
-    win.on('scroll', function() {
+    win.on('scroll', function () {
         var scroll = win.scrollTop();
         if (scroll < 100) {
-           header.removeClass("react-sticky");
+            header.removeClass("react-sticky");
         } else {
-           header.addClass("react-sticky");
+            header.addClass("react-sticky");
         }
     });
 
@@ -44,7 +44,7 @@
         Parallax Sidebar
     -------------------------------------*/
     var back_parallax = $('.parallax');
-    if(back_parallax.length){
+    if (back_parallax.length) {
         $('.parallax').parallax();
     }
 
@@ -62,32 +62,32 @@
         wow.init();
     }
 
-    if ($('.counter').length) { 
+    if ($('.counter').length) {
         $('.counter').counterUp({
             delay: 10,
             time: 2000
         });
     }
-    
+
     // magnificPopup init
-     var imagepopup = $('.image-popup');
-     if(imagepopup.length) {
-         $('.image-popup').magnificPopup({
-             type: 'image',
-             callbacks: {
-                 beforeOpen: function() {
+    var imagepopup = $('.image-popup');
+    if (imagepopup.length) {
+        $('.image-popup').magnificPopup({
+            type: 'image',
+            callbacks: {
+                beforeOpen: function () {
                     this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure animated zoomInDown');
-                 }
-             },
-             gallery: {
-                 enabled: true
-             }
-         });
-     }
+                }
+            },
+            gallery: {
+                enabled: true
+            }
+        });
+    }
 
 
     //Taggle Js
-    $('#menu-btn').on('click', function(e) {
+    $('#menu-btn').on('click', function (e) {
         $(this).toggleClass("back__close");
         e.preventDefault();
     });
@@ -95,20 +95,21 @@
     // Home Slider
     if ($('.home-sliders').length) {
         $('.home-sliders').owlCarousel({
-            loop:true,
-            items:1,
-            margin:0,
-            autoplay:false,
-            slideSpeed : 800,
-            nav:true,
-            dots:false,
-            responsive:{
-                0:{
-                    dots:false,
-                    nav:false,
+            rewind: true,
+            items: 1,
+            margin: 0,
+            autoplay: false,
+            slideSpeed: 800,
+            nav: true,
+            dots: false,
+            lazyLoad: true,
+            responsive: {
+                0: {
+                    dots: false,
+                    nav: false,
                 },
-                768:{
-                    dots:false,
+                768: {
+                    dots: false,
                 },
             }
         })
@@ -117,29 +118,30 @@
     // Client Slider Part
     if ($('.client-slider').length) {
         $('.client-slider').owlCarousel({
-            loop:true,
-            items:1,
-            margin:0,
-            autoplay:false,
-            slideSpeed : 300,
-            nav:true,
-            dots:false,
+            rewind: true,
+            items: 1,
+            margin: 0,
+            autoplay: false,
+            slideSpeed: 300,
+            nav: true,
+            dots: false,
             center: false,
-            responsive:{
-                0:{
-                    items:1,
+            lazyLoad: true,
+            responsive: {
+                0: {
+                    items: 1,
                     center: false,
                 },
-                575:{
-                    items:1,
+                575: {
+                    items: 1,
                     center: false,
                 },
-                767:{
-                    items:1,
+                767: {
+                    items: 1,
                     center: false,
                 },
-                1200:{
-                    items:1,
+                1200: {
+                    items: 1,
                 },
             }
         })
@@ -148,30 +150,31 @@
     // Client Slider Part
     if ($('.event-slider').length) {
         $('.event-slider').owlCarousel({
-            loop:true,
-            items:4,
-            margin:25,
-            autoplay:false,
-            slideSpeed : 300,
-            nav:false,
-            dots:true,
+            rewind: true,
+            items: 4,
+            margin: 25,
+            autoplay: false,
+            slideSpeed: 300,
+            nav: false,
+            dots: true,
             center: false,
-            responsive:{
-                0:{
-                    items:1,
+            lazyLoad: true,
+            responsive: {
+                0: {
+                    items: 1,
                     center: false,
                 },
-                575:{
-                    items:1,
+                575: {
+                    items: 1,
                     center: false,
                 },
-                767:{
-                    items:2,
+                767: {
+                    items: 2,
                     center: false,
                 },
-                1200:{
-                    items:4,
-                    dots:true,
+                1200: {
+                    items: 4,
+                    dots: true,
                 },
             }
         })
@@ -180,30 +183,31 @@
     // Client Slider Part
     if ($('.feedreact-slider').length) {
         $('.feedreact-slider').owlCarousel({
-            loop:true,
-            items:3,
-            margin:25,
-            autoplay:false,
-            slideSpeed : 300,
-            nav:true,
-            dots:false,
+            rewind: true,
+            items: 3,
+            margin: 25,
+            autoplay: false,
+            slideSpeed: 300,
+            nav: true,
+            dots: false,
             center: false,
-            responsive:{
-                0:{
-                    items:1,
+            lazyLoad: true,
+            responsive: {
+                0: {
+                    items: 1,
                     center: false,
                 },
-                575:{
-                    items:1,
+                575: {
+                    items: 1,
                     center: false,
                 },
-                767:{
-                    items:2,
+                767: {
+                    items: 2,
                     center: false,
                 },
-                1200:{
-                    items:3,
-                    dots:false,
+                1200: {
+                    items: 3,
+                    dots: false,
                 },
             }
         })
@@ -212,29 +216,30 @@
     // Client Slider Part
     if ($('#react-blog-slider').length) {
         $('#react-blog-slider').owlCarousel({
-            loop:true,
-            items:3,
-            margin:20,
-            autoplay:false,
-            slideSpeed : 300,
-            nav:false,
-            dots:false,
+            rewind: true,
+            items: 3,
+            margin: 20,
+            autoplay: false,
+            slideSpeed: 300,
+            nav: false,
+            dots: false,
             center: false,
-            responsive:{
-                0:{
-                    items:1,
+            lazyLoad: true,
+            responsive: {
+                0: {
+                    items: 1,
                     center: false,
                 },
-                575:{
-                    items:1,
+                575: {
+                    items: 1,
                     center: false,
                 },
-                767:{
-                    items:2,
+                767: {
+                    items: 2,
                     center: false,
                 },
-                1200:{
-                    items:3,
+                1200: {
+                    items: 3,
                 },
             }
         })
@@ -242,20 +247,20 @@
 
     // Skill bar 
     var skillbar = $('.skillbars');
-    if(skillbar.length) {
-        $('.skillbars').skillBars({  
-            from: 0,    
-            speed: 4000,    
-            interval: 100,  
-            decimals: 0,    
+    if (skillbar.length) {
+        $('.skillbars').skillBars({
+            from: 0,
+            speed: 4000,
+            interval: 100,
+            decimals: 0,
         });
     }
 
     //filter js
     var pifilter = $('.react-grid');
-    if(pifilter.length){
-        $('.react-grid').imagesLoaded(function() {
-            $('.react-filter').on('click', 'button', function() {
+    if (pifilter.length) {
+        $('.react-grid').imagesLoaded(function () {
+            $('.react-filter').on('click', 'button', function () {
                 var filterValue = $(this).attr('data-filter');
                 $grid.isotope({
                     filter: filterValue
@@ -270,20 +275,20 @@
             });
         });
     }
-    
+
     // portfolio Filter
     var filterbutton = $('.react-filter button');
-      if(filterbutton.length){
-        $('.react-filter button').on('click', function(event) {
-          $(this).siblings('.active').removeClass('active');
-          $(this).addClass('active');
-          event.preventDefault();
+    if (filterbutton.length) {
+        $('.react-filter button').on('click', function (event) {
+            $(this).siblings('.active').removeClass('active');
+            $(this).addClass('active');
+            event.preventDefault();
         });
     }
 
     //Videos popup jQuery 
     var popup = $('.custom-popup');
-    if(popup.length) {
+    if (popup.length) {
         $('.custom-popup').magnificPopup({
             disableOn: 10,
             type: 'iframe',
@@ -291,41 +296,41 @@
             removalDelay: 160,
             preloader: false,
             fixedContentPos: false
-        }); 
+        });
     }
-    
+
 
     //preloader
-    $(window).on( 'load', function() {
+    $(window).on('load', function () {
         $("#react__preloader").delay(500).fadeOut(300);
         $("#react__preloader").delay(500).fadeOut(300);
     })
 
     // scrollTop init
-    var pitotop = $('#backscrollUp'); 
-    if(pitotop.length){   
-        win.on('scroll', function() {
+    var pitotop = $('#backscrollUp');
+    if (pitotop.length) {
+        win.on('scroll', function () {
             if (win.scrollTop() > 350) {
                 pitotop.fadeIn();
             } else {
                 pitotop.fadeOut();
             }
         });
-        pitotop.on('click', function() {
+        pitotop.on('click', function () {
             $("html,body").animate({
                 scrollTop: 0
             }, 500)
         });
     }
     var lastScrollTop = 0;
-    $(window).scroll(function(event){
-       var st = $(this).scrollTop();
-       if (st > lastScrollTop){
-           $( "#backscrollUp" ).removeClass( "react__up___scroll" );
-       } else {
-          $( "#backscrollUp" ).addClass( "react__up___scroll" );
-       }
-       lastScrollTop = st;
+    $(window).scroll(function (event) {
+        var st = $(this).scrollTop();
+        if (st > lastScrollTop) {
+            $("#backscrollUp").removeClass("react__up___scroll");
+        } else {
+            $("#backscrollUp").addClass("react__up___scroll");
+        }
+        lastScrollTop = st;
     });
 
 })(jQuery);
