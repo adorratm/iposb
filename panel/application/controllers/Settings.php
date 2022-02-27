@@ -85,8 +85,8 @@ class Settings extends MY_Controller
                 echo json_encode(["success" => false, "title" => "Başarısız!", "message" => "Ayar Eklenirken Hata Oluştu. İletişim Logosu Seçtiğinizden Emin Olup, Lütfen Tekrar Deneyin."]);
                 die();
             endif;
-            if (empty($_FILES["news_logo"]["name"])) :
-                echo json_encode(["success" => false, "title" => "Başarısız!", "message" => "Ayar Eklenirken Hata Oluştu. Haberler Logosu Seçtiğinizden Emin Olup, Lütfen Tekrar Deneyin."]);
+            if (empty($_FILES["blog_logo"]["name"])) :
+                echo json_encode(["success" => false, "title" => "Başarısız!", "message" => "Ayar Eklenirken Hata Oluştu. Blog Logosu Seçtiğinizden Emin Olup, Lütfen Tekrar Deneyin."]);
                 die();
             endif;
             if (empty($_FILES["about_logo"]["name"])) :
@@ -101,7 +101,7 @@ class Settings extends MY_Controller
             $mobile_logo = upload_picture("mobile_logo", "uploads/$this->viewFolder");
             $favicon = upload_picture("favicon", "uploads/$this->viewFolder");
             $contact_logo = upload_picture("contact_logo", "uploads/$this->viewFolder");
-            $news_logo = upload_picture("news_logo", "uploads/$this->viewFolder");
+            $blog_logo = upload_picture("blog_logo", "uploads/$this->viewFolder");
             $about_logo = upload_picture("about_logo", "uploads/$this->viewFolder");
             $gallery_logo = upload_picture("gallery_logo", "uploads/$this->viewFolder");
             $product_logo = upload_picture("product_logo", "uploads/$this->viewFolder");
@@ -115,8 +115,8 @@ class Settings extends MY_Controller
                         $data["favicon"] = $favicon["file_name"];
                         if ($contact_logo["success"]) :
                             $data["contact_logo"] = $contact_logo["file_name"];
-                            if ($news_logo["success"]) :
-                                $data["news_logo"] = $news_logo["file_name"];
+                            if ($blog_logo["success"]) :
+                                $data["blog_logo"] = $blog_logo["file_name"];
                                 if ($about_logo["success"]) :
                                     $data["about_logo"] = $about_logo["file_name"];
                                     if ($gallery_logo["success"]) :
@@ -161,7 +161,7 @@ class Settings extends MY_Controller
                                     echo json_encode(["success" => false, "title" => "Başarısız!", "message" => "Ayar Eklenirken Hata Oluştu. Kurumsal Logosunu Seçtiğinizden Emin Olup, Lütfen Tekrar Deneyin."]);
                                 endif;
                             else :
-                                echo json_encode(["success" => false, "title" => "Başarısız!", "message" => "Ayar Eklenirken Hata Oluştu. Haberler Logosusunu Seçtiğinizden Emin Olup, Lütfen Tekrar Deneyin."]);
+                                echo json_encode(["success" => false, "title" => "Başarısız!", "message" => "Ayar Eklenirken Hata Oluştu. Blog Logosusunu Seçtiğinizden Emin Olup, Lütfen Tekrar Deneyin."]);
                             endif;
                         else :
                             echo json_encode(["success" => false, "title" => "Başarısız!", "message" => "Ayar Eklenirken Hata Oluştu. İletişim Logosu Seçtiğinizden Emin Olup, Lütfen Tekrar Deneyin."]);
@@ -240,12 +240,12 @@ class Settings extends MY_Controller
                         die();
                     endif;
                 endif;
-                if (!empty($_FILES["news_logo"]["name"])) :
-                    $image = upload_picture("news_logo", "uploads/$this->viewFolder");
+                if (!empty($_FILES["blog_logo"]["name"])) :
+                    $image = upload_picture("blog_logo", "uploads/$this->viewFolder");
                     if ($image["success"]) :
-                        $data["news_logo"] = $image["file_name"];
+                        $data["blog_logo"] = $image["file_name"];
                     else :
-                        echo json_encode(["success" => false, "title" => "Başarısız!", "message" => "Ayar Güncelleştirilirken Hata Oluştu. Haberler Logosusunu Seçtiğinizden Emin Olup, Lütfen Tekrar Deneyin."]);
+                        echo json_encode(["success" => false, "title" => "Başarısız!", "message" => "Ayar Güncelleştirilirken Hata Oluştu. Blog Logosusunu Seçtiğinizden Emin Olup, Lütfen Tekrar Deneyin."]);
                         die();
                     endif;
                 endif;

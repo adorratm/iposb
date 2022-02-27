@@ -119,6 +119,20 @@
         </div>
     </div>
     <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+            <div class="form-group">
+                <label>Video Buton Başlık</label>
+                <input class="form-control form-control-sm rounded-0" placeholder="Butonun Üzerindeki Yazı" name="video_caption" value="<?= (!empty($item->video_caption) ? $item->video_caption : null); ?>">
+            </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+            <div class="form-group">
+                <label>Video URL Bilgisi</label>
+                <input class="form-control form-control-sm rounded-0" placeholder="Butona Basıldığında Gidilecek Olan URL Bilgisi" name="video_url" value="<?= (!empty($item->video_url) ? $item->video_url : null); ?>">
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"></div>
     </div>
     <div class="row">

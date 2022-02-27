@@ -223,7 +223,7 @@ class Home extends MY_Controller
             array_push($store_all_id, $menu_id->top_id);
         }
         // return all hierarchical tree data from in_parent by sending
-        //  initiate parameters 0 is the main parent,news id, all parent ids
+        //  initiate parameters 0 is the main parent,blog id, all parent ids
         return  $this->in_parent(0, $position, $lang, $store_all_id);
     }
     /**
@@ -318,13 +318,13 @@ class Home extends MY_Controller
      */
     /**
      * -----------------------------------------------------------------------------------------------
-     * ...:::!!! ================================== NEWS =================================== !!!:::...
+     * ...:::!!! ================================== BLOGS =================================== !!!:::...
      * -----------------------------------------------------------------------------------------------
      */
     /**
-     * News
+     * Blogs
      */
-    public function news()
+    public function blogs()
     {
         $seo_url = $this->uri->segment(3);
         $search = null;
@@ -334,7 +334,7 @@ class Home extends MY_Controller
         $category_id = null;
         $category = null;
         if (!empty($seo_url) && !is_numeric($seo_url)) :
-            $category = $this->general_model->get("news_categories", null, ["isActive" => 1, "lang" => $this->viewData->lang, "seo_url" => $seo_url]);
+            $category = $this->general_model->get("blog_categories", null, ["isActive" => 1, "lang" => $this->viewData->lang, "seo_url" => $seo_url]);
             if (!empty($category)) :
                 $category_id = $category->id;
                 $category->seo_url = (!empty($category->seo_url) ? $category->seo_url : null);
@@ -364,7 +364,7 @@ class Home extends MY_Controller
         $config["last_tag_close"] = "</li>";
         $config["full_tag_close"] = "</ul>";
         $config['attributes'] = array('class' => 'page-link');
-        $config['total_rows'] = (!empty($seo_url) && !is_numeric($seo_url) ? (!empty($search) ? $this->general_model->rowCount("news", ["isActive" => 1, "category_id" => $category_id, "lang" => $this->viewData->lang], ["title" =>  $search, "content" =>  $search, "createdAt" => $search, "updatedAt" =>  $search]) : $this->general_model->rowCount("news", ["isActive" => 1, "category_id" => $category_id, "lang" => $this->viewData->lang])) : (!empty($search) ? $this->general_model->rowCount("news", ["isActive" => 1, "lang" => $this->viewData->lang], ["title" =>  $search, "content" => $search, "createdAt" =>  $search, "updatedAt" =>  $search]) : $this->general_model->rowCount("news", ["isActive" => 1, "lang" => $this->viewData->lang])));
+        $config['total_rows'] = (!empty($seo_url) && !is_numeric($seo_url) ? (!empty($search) ? $this->general_model->rowCount("blogs", ["isActive" => 1, "category_id" => $category_id, "lang" => $this->viewData->lang], ["title" =>  $search, "content" =>  $search, "createdAt" => $search, "updatedAt" =>  $search]) : $this->general_model->rowCount("blogs", ["isActive" => 1, "category_id" => $category_id, "lang" => $this->viewData->lang])) : (!empty($search) ? $this->general_model->rowCount("blogs", ["isActive" => 1, "lang" => $this->viewData->lang], ["title" =>  $search, "content" => $search, "createdAt" =>  $search, "updatedAt" =>  $search]) : $this->general_model->rowCount("blogs", ["isActive" => 1, "lang" => $this->viewData->lang])));
         $config['per_page'] = 8;
         $config["num_links"] = 5;
         $config['reuse_query_string'] = true;
@@ -380,58 +380,58 @@ class Home extends MY_Controller
         $this->viewData->offset = $offset;
         $this->viewData->per_page = $config['per_page'];
         $this->viewData->total_rows = $config['total_rows'];
-        $this->viewData->news_category = $category;
-        $this->viewData->news = (!empty($seo_url) && !is_numeric($seo_url) ? (!empty($search) ? $this->general_model->get_all("news", null, null, ['category_id' => $category_id, "isActive" => 1, "lang" => $this->viewData->lang], ["title" =>  $search, "content" =>  $search, "createdAt" => $search, "updatedAt" =>  $search], [], [$config["per_page"], $offset]) : $this->general_model->get_all("news", null, null, ['category_id' => $category_id, "isActive" => 1, "lang" => $this->viewData->lang], [], [], [$config["per_page"], $offset])) : (!empty($search) ? $this->general_model->get_all("news", null, null, ["isActive" => 1, "lang" => $this->viewData->lang], ["title" =>  $search, "content" =>  $search, "createdAt" =>  $search, "updatedAt" =>  $search], [], [$config["per_page"], $offset]) : $this->general_model->get_all("news", null, null, ["isActive" => 1, "lang" => $this->viewData->lang], [], [], [$config["per_page"], $offset])));
-        $this->viewData->categories = $this->general_model->get_all("news_categories", null, "id DESC", ["isActive" => 1]);
-        $this->viewData->latestNews = (!empty($seo_url) && !is_numeric($seo_url) ? $this->general_model->get_all("news", null, "id DESC", ['category_id' => $category_id, "isActive" => 1, "lang" => $this->viewData->lang], [], [], [5]) : $this->general_model->get_all("news", null, "id DESC", ["isActive" => 1, "lang" => $this->viewData->lang], [], [], [5]));
+        $this->viewData->blog_category = $category;
+        $this->viewData->blogs = (!empty($seo_url) && !is_numeric($seo_url) ? (!empty($search) ? $this->general_model->get_all("blogs", null, null, ['category_id' => $category_id, "isActive" => 1, "lang" => $this->viewData->lang], ["title" =>  $search, "content" =>  $search, "createdAt" => $search, "updatedAt" =>  $search], [], [$config["per_page"], $offset]) : $this->general_model->get_all("blogs", null, null, ['category_id' => $category_id, "isActive" => 1, "lang" => $this->viewData->lang], [], [], [$config["per_page"], $offset])) : (!empty($search) ? $this->general_model->get_all("blogs", null, null, ["isActive" => 1, "lang" => $this->viewData->lang], ["title" =>  $search, "content" =>  $search, "createdAt" =>  $search, "updatedAt" =>  $search], [], [$config["per_page"], $offset]) : $this->general_model->get_all("blogs", null, null, ["isActive" => 1, "lang" => $this->viewData->lang], [], [], [$config["per_page"], $offset])));
+        $this->viewData->categories = $this->general_model->get_all("blog_categories", null, "id DESC", ["isActive" => 1]);
+        $this->viewData->latestBlogs = (!empty($seo_url) && !is_numeric($seo_url) ? $this->general_model->get_all("blogs", null, "id DESC", ['category_id' => $category_id, "isActive" => 1, "lang" => $this->viewData->lang], [], [], [5]) : $this->general_model->get_all("blogs", null, "id DESC", ["isActive" => 1, "lang" => $this->viewData->lang], [], [], [5]));
 
-        $this->viewData->meta_title = clean(strto("lower|upper", lang("routes_news"))) . " - " . $this->viewData->settings->company_name;
+        $this->viewData->meta_title = clean(strto("lower|upper", lang("routes_blog"))) . " - " . $this->viewData->settings->company_name;
         $this->viewData->meta_desc  = str_replace("”", "\"", stripslashes($this->viewData->settings->meta_description));
         $this->viewData->meta_keyw  = clean($this->viewData->settings->meta_keywords);
 
-        $this->viewData->og_url                 = clean(base_url(lang("routes_news")));
+        $this->viewData->og_url                 = clean(base_url(lang("routes_blog")));
         $this->viewData->og_image           = clean(get_picture("settings_v", $this->viewData->settings->logo));
         $this->viewData->og_type          = "article";
-        $this->viewData->og_title           = clean(strto("lower|upper", lang("routes_news"))) . " - " . $this->viewData->settings->company_name;
+        $this->viewData->og_title           = clean(strto("lower|upper", lang("routes_blog"))) . " - " . $this->viewData->settings->company_name;
         $this->viewData->og_description           = clean($this->viewData->settings->meta_description);
         $this->viewData->links = $this->pagination->create_links();
-        if (empty($this->viewData->news)) :
+        if (empty($this->viewData->blogs)) :
             $this->viewFolder = "404_v/index";
         else :
-            $this->viewFolder = "news_v/index";
+            $this->viewFolder = "blogs_v/index";
         endif;
         $this->render();
     }
     /**
-     * News Detail
+     * Blog Detail
      */
-    public function news_detail($seo_url)
+    public function blog_detail($seo_url)
     {
-        $this->viewData->news = $this->general_model->get("news", null, ["isActive" => 1, "lang" => $this->viewData->lang, 'seo_url' => $seo_url]);
-        if (!empty($this->viewData->news->category_id)) :
-            $this->viewData->category = $this->general_model->get("news_categories", null, ["id" => $this->viewData->news->category_id, "isActive" => 1, "lang" => $this->viewData->lang]);
+        $this->viewData->blog = $this->general_model->get("blogs", null, ["isActive" => 1, "lang" => $this->viewData->lang, 'seo_url' => $seo_url]);
+        if (!empty($this->viewData->blog->category_id)) :
+            $this->viewData->category = $this->general_model->get("blog_categories", null, ["id" => $this->viewData->blog->category_id, "isActive" => 1, "lang" => $this->viewData->lang]);
         endif;
-        $this->viewData->categories = $this->general_model->get_all("news_categories", null, "id DESC", ["isActive" => 1, "lang" => $this->viewData->lang]);
-        $this->viewData->latestNews = (!empty($this->viewData->news->category_id) ? $this->general_model->get_all("news", null, "id DESC", ['category_id' => $this->viewData->news->category_id, "isActive" => 1, "lang" => $this->viewData->lang], [], [], [5]) : $this->general_model->get_all("news", null, "id DESC", ["isActive" => 1, "lang" => $this->viewData->lang], [], [], [5]));
+        $this->viewData->categories = $this->general_model->get_all("blog_categories", null, "id DESC", ["isActive" => 1, "lang" => $this->viewData->lang]);
+        $this->viewData->latestBlog = (!empty($this->viewData->blog->category_id) ? $this->general_model->get_all("blogs", null, "id DESC", ['category_id' => $this->viewData->blogs->category_id, "isActive" => 1, "lang" => $this->viewData->lang], [], [], [5]) : $this->general_model->get_all("blogs", null, "id DESC", ["isActive" => 1, "lang" => $this->viewData->lang], [], [], [5]));
 
-        $this->viewData->meta_title = strto("lower|upper", $this->viewData->news->title) . " - " . $this->viewData->settings->company_name;
-        $this->viewData->meta_desc  = clean(str_replace("”", "\"", stripslashes($this->viewData->news->content)));
+        $this->viewData->meta_title = strto("lower|upper", $this->viewData->blog->title) . " - " . $this->viewData->settings->company_name;
+        $this->viewData->meta_desc  = clean(str_replace("”", "\"", stripslashes($this->viewData->blog->content)));
         $this->viewData->meta_keyw  = clean($this->viewData->settings->meta_keywords);
-        $this->viewData->og_url                 = clean(base_url(lang("routes_news") . "/" . lang("routes_newss") . "/" . $seo_url));
-        $this->viewData->og_image           = clean(get_picture("news_v", $this->viewData->news->img_url));
+        $this->viewData->og_url                 = clean(base_url(lang("routes_blog") . "/" . lang("routes_blog_detail") . "/" . $seo_url));
+        $this->viewData->og_image           = clean(get_picture("blogs_v", $this->viewData->blog->img_url));
         $this->viewData->og_type          = "article";
-        $this->viewData->og_title           = strto("lower|upper", $this->viewData->news->title) . " - " . $this->viewData->settings->company_name;
-        $this->viewData->og_description           = clean(str_replace("”", "\"", stripslashes($this->viewData->news->content)));
-        if (empty($this->viewData->news)) :
+        $this->viewData->og_title           = strto("lower|upper", $this->viewData->blog->title) . " - " . $this->viewData->settings->company_name;
+        $this->viewData->og_description           = clean(str_replace("”", "\"", stripslashes($this->viewData->blog->content)));
+        if (empty($this->viewData->blog)) :
             $this->viewFolder = "404_v/index";
         else :
-            $this->viewFolder = "news_detail_v/index";
+            $this->viewFolder = "blog_detail_v/index";
         endif;
         $this->render();
     }
     /**
      * -----------------------------------------------------------------------------------------------
-     * ...:::!!! ================================== NEWS =================================== !!!:::...
+     * ...:::!!! ================================== BLOGS =================================== !!!:::...
      * -----------------------------------------------------------------------------------------------
      */
     /**
@@ -2855,24 +2855,24 @@ class Home extends MY_Controller
             endforeach;
         endif;
         /**
-         * News Categories
+         * Blog Categories
          */
-        $news_categories = $this->general_model->get_all("news_categories", null, "rank ASC", ["isActive" => 1, "lang" => $this->viewData->lang]);
-        if (!empty($news_categories)) :
-            foreach ($news_categories as $k => $v) :
+        $blog_categories = $this->general_model->get_all("blog_categories", null, "rank ASC", ["isActive" => 1, "lang" => $this->viewData->lang]);
+        if (!empty($blog_categories)) :
+            foreach ($blog_categories as $k => $v) :
                 if (!empty($v->seo_url)) :
-                    $this->sitemapmodel->add(base_url(lang("routes_news") . "/{$v->seo_url}"), NULL, 'always', 1);
+                    $this->sitemapmodel->add(base_url(lang("routes_blog") . "/{$v->seo_url}"), NULL, 'always', 1);
                 endif;
             endforeach;
         endif;
         /**
-         * News
+         * Blogs
          */
-        $news = $this->general_model->get_all("news", null, "id DESC", ['isActive' => 1, "lang" => $this->viewData->lang], [], [], []);
-        if (!empty($news)) :
-            foreach ($news as $k => $v) :
+        $blogs = $this->general_model->get_all("blogs", null, "id DESC", ['isActive' => 1, "lang" => $this->viewData->lang], [], [], []);
+        if (!empty($blogs)) :
+            foreach ($blogs as $k => $v) :
                 if (!empty($v->seo_url)) :
-                    $this->sitemapmodel->add(base_url(lang("routes_news") . "/" . lang("routes_newss") . "/{$v->seo_url}"), NULL, 'always', 1);
+                    $this->sitemapmodel->add(base_url(lang("routes_blog") . "/" . lang("routes_blog_detail") . "/{$v->seo_url}"), NULL, 'always', 1);
                 endif;
             endforeach;
         endif;
@@ -2946,24 +2946,24 @@ class Home extends MY_Controller
             endforeach;
         endif;
         /**
-         * News Categories
+         * Blog Categories
          */
-        $news_categories = $this->general_model->get_all("news_categories", null, "rank ASC", ["isActive" => 1, "lang" => $this->viewData->lang]);
-        if (!empty($news_categories)) :
-            foreach ($news_categories as $k => $v) :
+        $blog_categories = $this->general_model->get_all("blog_categories", null, "rank ASC", ["isActive" => 1, "lang" => $this->viewData->lang]);
+        if (!empty($blog_categories)) :
+            foreach ($blog_categories as $k => $v) :
                 if (!empty($v->seo_url)) :
-                    $this->sitemapmodel->add(base_url(lang("routes_news") . "/{$v->seo_url}"), NULL, 'always', 1);
+                    $this->sitemapmodel->add(base_url(lang("routes_blog") . "/{$v->seo_url}"), NULL, 'always', 1);
                 endif;
             endforeach;
         endif;
         /**
-         * News
+         * Blogs
          */
-        $news = $this->general_model->get_all("news", null, "id DESC", ['isActive' => 1, "lang" => $this->viewData->lang], [], [], []);
-        if (!empty($news)) :
-            foreach ($news as $k => $v) :
+        $blogs = $this->general_model->get_all("blogs", null, "id DESC", ['isActive' => 1, "lang" => $this->viewData->lang], [], [], []);
+        if (!empty($blogs)) :
+            foreach ($blogs as $k => $v) :
                 if (!empty($v->seo_url)) :
-                    $this->sitemapmodel->add(base_url(lang("routes_news") . "/" . lang("routes_newss") . "/{$v->seo_url}"), NULL, 'always', 1);
+                    $this->sitemapmodel->add(base_url(lang("routes_blog") . "/" . lang("routes_blog_detail") . "/{$v->seo_url}"), NULL, 'always', 1);
                 endif;
             endforeach;
         endif;

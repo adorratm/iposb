@@ -1211,7 +1211,7 @@
         .hero4__area {
             overflow: hidden;
             position: relative;
-            background: url(assets/images/hero/01.png) no-repeat center top;
+            background: url(<?= asset_url("public/images/hero/01.webp") ?>) no-repeat center top;
             background-size: cover
         }
 
@@ -1648,8 +1648,8 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            right:10%;
-            left:10%;
+            right: 10%;
+            left: 10%;
         }
 
         .home-sliders .slider-content .slider-title {
@@ -1723,7 +1723,7 @@
 
         .home-sliders .owl-nav [class*=owl-]:before {
             content: "\f105";
-            font-family: "Font Awesome 6 Free",sans-serif;
+            font-family: "Font Awesome 6 Free", sans-serif;
             font-weight: 900;
             position: absolute;
             left: 50%;
@@ -1779,7 +1779,7 @@
             font-weight: 700;
             font-size: 20px;
             text-align: left;
-            margin-top: 20px;
+            margin-top: 30px;
             font-style: normal
         }
 
@@ -1924,7 +1924,7 @@
 
         .hero3__area {
             overflow: hidden;
-            background: url(assets/images/banner2/bg2.png) no-repeat center top;
+            background: url(<?= asset_url("public/images/banner2/bg2.webp") ?>) no-repeat center top;
             padding-bottom: 180px;
             padding-top: 160px;
             background-size: cover
@@ -2492,7 +2492,7 @@
         }
 
         .about__area.about__area_one ul li.last-li {
-            background: url(assets/images/about/comment.png) no-repeat left top;
+            background: url(<?= asset_url("public/images/about/comment.webp") ?>) no-repeat left top;
             padding-left: 72px;
             margin-left: 30px
         }
@@ -2953,7 +2953,7 @@
             -moz-transform: translateY(-50%);
             -ms-transform: translateY(-50%);
             transform: translateY(-50%);
-            font-family: "Font Awesome 6 Free",sans-serif;
+            font-family: "Font Awesome 6 Free", sans-serif;
             font-size: 22px;
             color: #091524;
             background-image: none;
@@ -3403,7 +3403,7 @@
         }
 
         .react-clients {
-            background: url(assets/images/testimonial/bg.jpg) no-repeat center top;
+            background: url(<?= asset_url("public/images/testimonial/bg.webp") ?>) no-repeat center top;
             background-size: cover
         }
 
@@ -3539,8 +3539,8 @@
         }
 
         .react-clients .client-slider.owl-carousel .owl-nav [class*=owl-]:before {
-            content: "\35";
-            font-family: "Font Awesome 6 Free",sans-serif;
+            content: "\f105";
+            font-family: "Font Awesome 6 Free", sans-serif;
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
@@ -3560,7 +3560,7 @@
         }
 
         .react-clients .client-slider.owl-carousel .owl-nav [class*=owl-].owl-prev:before {
-            content: '\34'
+            content: '\f104'
         }
 
         .react-clients .client-slider.owl-carousel .owl-nav [class*=owl-]:hover {
@@ -3570,7 +3570,7 @@
         }
 
         .react-clients.react-clientso {
-            background: url(assets/images/testimonial/bg3.png) no-repeat center top;
+            background: url(<?= asset_url("public/images/testimonial/bg3.webp") ?>) no-repeat center top;
             background-size: cover
         }
 
@@ -3757,7 +3757,7 @@
         }
 
         .campus_sec {
-            background: url(assets/images/campus/cam.png) no-repeat center top;
+            background: url(<?= asset_url("public/images/campus/cam.webp") ?>) no-repeat center top;
             background-size: cover
         }
 
@@ -4902,7 +4902,7 @@
             content: "";
             font-size: 120px;
             position: absolute;
-            background: url(assets/images/blog-grid/qu.png) no-repeat right bottom;
+            background: url(<?= asset_url("public/images/blog-grid/qu.webp") ?>) no-repeat right bottom;
             bottom: 0;
             right: 47px;
             width: 107px;
@@ -4918,7 +4918,7 @@
             content: "";
             font-size: 120px;
             position: absolute;
-            background: url(assets/images/blog-grid/link.png) no-repeat right bottom;
+            background: url(<?= asset_url("public/images/blog-grid/link.webp") ?>) no-repeat right bottom;
             top: 50%;
             left: 40px;
             width: 30px;
@@ -5157,7 +5157,7 @@
             content: "";
             font-size: 120px;
             position: absolute;
-            background: url(assets/images/blog-grid/qu.png) no-repeat right bottom;
+            background: url(<?= asset_url("public/images/blog-grid/qu.webp") ?>) no-repeat right bottom;
             bottom: 0;
             right: 47px;
             width: 107px;
@@ -5169,7 +5169,7 @@
             content: "";
             font-size: 120px;
             position: absolute;
-            background: url(assets/images/blog-grid/link.png) no-repeat right bottom;
+            background: url(<?= asset_url("public/images/blog-grid/link.webp") ?>) no-repeat right bottom;
             bottom: -6px;
             right: 47px;
             width: 180px;
@@ -7047,7 +7047,7 @@
         }
 
         .student_satisfaction-section {
-            background: url(assets/images/testimonial/bg.jpg) no-repeat center top;
+            background: url(<?= asset_url("public/images/testimonial/bg.webp") ?>) no-repeat center top;
             background-size: cover;
             padding-top: 100px;
             padding-bottom: 100px
@@ -7172,7 +7172,7 @@
 
         .student_satisfaction-section .owl-carousel .owl-nav [class*=owl-]:before {
             content: "\35";
-            font-family: "Font Awesome 6 Free",sans-serif;
+            font-family: "Font Awesome 6 Free", sans-serif;
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
@@ -7191,7 +7191,7 @@
         }
 
         .student_satisfaction-section .owl-carousel .owl-nav [class*=owl-].owl-prev:before {
-            content: '\34'
+            content: '\f104'
         }
 
         .student_satisfaction-section .owl-carousel .owl-nav [class*=owl-]:hover {
@@ -7362,7 +7362,7 @@
         }
 
         .react-footer .footer-top-cta {
-            background: url(assets/images/cta.jpg) no-repeat center top;
+            background: url(<?= asset_url("public/images/cta.webp") ?>) no-repeat center top;
             background-size: cover;
             border-radius: 10px;
             padding: 50px 55px;
@@ -7837,12 +7837,12 @@
         }
 
         .react-login-page {
-            background: url(assets/images/login/1.jpg) no-repeat center top;
+            background: url(<?= asset_url("public/images/login/1.webp") ?>) no-repeat center top;
             background-size: cover
         }
 
         .react-login-page.react-signup-page {
-            background: url(assets/images/login/1.jpg) no-repeat center top;
+            background: url(<?= asset_url("public/images/login/1.webp") ?>) no-repeat center top;
             background-size: cover
         }
 
@@ -8026,7 +8026,10 @@
             align-items: center
         }
 
-        .home-sliders.owl-carousel,.home-sliders.owl-carousel .owl-stage {max-height: 770px; }
+        .home-sliders.owl-carousel,
+        .home-sliders.owl-carousel .owl-stage {
+            max-height: 770px;
+        }
     </style>
 
     <link rel="preload" type="text/css" href="<?= asset_url("public/css/custom-spacing.css") ?>" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -8055,6 +8058,6 @@
     <!--================= Preloader Section Start Here =================-->
     <div id="react__preloader">
         <div id="react__circle_loader"></div>
-        <div class="react__loader_logo"><img data-src="<?= get_picture("settings_v", $settings->logo) ?>" alt="<?=$settings->company_name?>" class="img-fluid lazyload"></div>
+        <div class="react__loader_logo"><img data-src="<?= get_picture("settings_v", $settings->logo) ?>" alt="<?= $settings->company_name ?>" class="img-fluid lazyload"></div>
     </div>
     <!--================= Preloader Section End Here =================-->

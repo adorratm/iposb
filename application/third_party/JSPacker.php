@@ -375,8 +375,7 @@ class JSPacker {
 	
 	// mmm.. ..which one do i need ??
 	private function _getEncoder($ascii) {
-		return $ascii > 10 ? $ascii > 36 ? $ascii > 62 ?
-		       '_encode95' : '_encode62' : '_encode36' : '_encode10';
+		return $ascii > 10 ? '_encode95' : ($ascii > 36 ? '_encode62' : ($ascii > 62 ? '_encode36' : '_encode10'));
 	}
 	
 	// zero encoding

@@ -135,8 +135,7 @@
             <?php foreach ($slides as $key => $value) : ?>
                 <div class="single-slide">
                     <div class="slider-img">
-                        <img <?= ($i != 0 ? "loading='lazy'" : null) ?> width="1920" height="1280" class="lazyload desktop img-fluid w-100 owl-lazy" data-src="<?= get_picture("slides_v", $value->img_url) ?>" alt="<?= $value->title ?>">
-                        <img <?= ($i != 0 ? "loading='lazy'" : null) ?> width="1920" height="1280" class="lazyload mobile img-fluid w-100 owl-lazy" data-src="<?= get_picture("slides_v", $value->img_url) ?>" alt="<?= $value->title ?>">
+                        <img <?= ($i != 0 ? "loading='lazy'" : null) ?> width="1920" height="1280" class="lazyload img-fluid w-100 owl-lazy" data-src="<?= get_picture("slides_v", $value->img_url) ?>" alt="<?= $value->title ?>">
                     </div>
                     <div class="container">
                         <div class="slider-content">
@@ -174,12 +173,16 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="event__video-btn--play">
-                            <a href="https://www.youtube.com/watch?v=e5Hc2B50Z7c" class="event__video-btn--play-btn custom-popup">
-                                <i class="fa fa-play"></i>
-                                <em>Watch Video <br>Intro</em>
-                            </a>
-                        </div>
+                        <?php if (!empty($value->video_url)) : ?>
+                            <div class="event__video-btn--play">
+                                <a href="<?= $value->video_url ?>" class="event__video-btn--play-btn custom-popup">
+                                    <i class="fa fa-play"></i>
+                                    <?php if (!empty($value->video_caption)) : ?>
+                                        <em><?= $value->video_caption ?></em>
+                                    <?php endif ?>
+                                </a>
+                            </div>
+                        <?php endif ?>
                     </div>
                 </div>
                 <?php $i++ ?>
@@ -193,14 +196,14 @@
 <div class="react_popular_topics pt---100 pb---70">
     <div class="container">
         <div class="react__title__section text-left">
-            <h2 class="react__tittle"><?=lang("academicDepartments")?></h2>
-            <img data-src="<?=asset_url("public/images/line.webp")?>" class="lazyload img-fluid" alt="<?=$settings->company_name?>">
+            <h2 class="react__tittle"><?= lang("academicDepartments") ?></h2>
+            <img data-src="<?= asset_url("public/images/line.webp") ?>" class="lazyload img-fluid" alt="<?= $settings->company_name ?>">
         </div>
         <div class="row">
             <div class="col-md-3">
                 <div class="item__inner">
                     <div class="icon">
-                        <img src="assets/images/service/1.png" alt="image">
+                        <img src="<?= asset_url("public/images/service/1.webp")?>" alt="image">
                     </div>
                     <div class="react-content">
                         <h3 class="react-title"><a href="coureses-grid.html">Let’s Talk Science</a></h3>
@@ -214,7 +217,7 @@
             <div class="col-md-3">
                 <div class="item__inner">
                     <div class="icon">
-                        <img src="assets/images/service/2.png" alt="image">
+                        <img src="<?= asset_url("public/images/service/2.webp")?>" alt="image">
                     </div>
                     <div class="react-content">
                         <h3 class="react-title"><a href="coureses-grid.html">Innovative Courses</a></h3>
@@ -228,7 +231,7 @@
             <div class="col-md-3">
                 <div class="item__inner">
                     <div class="icon">
-                        <img src="assets/images/service/3.png" alt="image">
+                        <img src="<?= asset_url("public/images/service/3.webp")?>" alt="image">
                     </div>
                     <div class="react-content">
                         <h3 class="react-title"><a href="coureses-grid.html">Cloud Storage</a></h3>
@@ -242,7 +245,7 @@
             <div class="col-md-3">
                 <div class="item__inner">
                     <div class="icon">
-                        <img src="assets/images/service/4.png" alt="image">
+                        <img src="<?= asset_url("public/images/service/4.webp")?>" alt="image">
                     </div>
                     <div class="react-content">
                         <h3 class="react-title"><a href="coureses-grid.html">Online Education</a></h3>
@@ -264,8 +267,8 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="about__image">
-                    <img src="assets/images/about/ab.png" alt="About">
-                    <img class="react__shape__ab" src="assets/images/about/badge.png" alt="Shape Image">
+                    <img src="<?= asset_url("public/images/about/ab.webp")?>" alt="About">
+                    <img class="react__shape__ab" src="<?= asset_url("public/images/about/badge.webp")?>" alt="Shape Image">
                 </div>
             </div>
             <div class="col-lg-6">
@@ -296,7 +299,7 @@
     <div class="container">
         <div class="react__title__section text-center">
             <h2 class="react__tittle">Campus Life</h2>
-            <img src="assets/images/line.png" alt="image">
+            <img src="<?= asset_url("public/images/line.webp")?>" alt="image">
         </div>
         <div class="row">
             <div class="col-lg-7">
@@ -304,7 +307,7 @@
                     <ul>
                         <li>
                             <div class="icon">
-                                <img src="assets/images/campus/1.svg" alt="image">
+                                <img src="<?= asset_url("public/images/campus/1.webp")?>" alt="image">
                             </div>
                             <div class="text">
                                 <h4>Do More, Stress Less</h4>
@@ -317,7 +320,7 @@
                         </li>
                         <li>
                             <div class="icon">
-                                <img src="assets/images/campus/2.svg" alt="image">
+                                <img src="<?= asset_url("public/images/campus/2.webp")?>" alt="image">
                             </div>
                             <div class="text">
                                 <h4>The Business Intelligence</h4>
@@ -330,7 +333,7 @@
                         </li>
                         <li>
                             <div class="icon">
-                                <img src="assets/images/campus/3.svg" alt="image">
+                                <img src="<?= asset_url("public/images/campus/3.webp")?>" alt="image">
                             </div>
                             <div class="text">
                                 <h4>System Administration</h4>
@@ -346,8 +349,8 @@
             </div>
             <div class="col-lg-5">
                 <div class="about__image">
-                    <img src="assets/images/campus/4.png" alt="image">
-                    <img class="shape-1" src="assets/images/campus/shape.png" alt="image">
+                    <img src="<?= asset_url("public/images/campus/4.webp")?>" alt="image">
+                    <img class="shape-1" src="<?= asset_url("public/images/campus/shape.webp")?>" alt="image">
                 </div>
             </div>
         </div>
@@ -366,13 +369,13 @@
     <div class="container">
         <div class="react__title__section text-center">
             <h2 class="react__tittle">Popular Courses</h2>
-            <img src="assets/images/line.png" alt="image">
+            <img src="<?= asset_url("public/images/line.webp")?>" alt="image">
         </div>
         <div class="row">
             <div class="col-lg-3">
                 <div class="course__item mb-30">
                     <div class="course__thumb">
-                        <a href="coureses-single.html"><img src="assets/images/course/1.png" alt="image"></a>
+                        <a href="coureses-single.html"><img src="<?= asset_url("public/images/course/1.webp")?>" alt="image"></a>
                     </div>
                     <div class="course__inner">
                         <ul>
@@ -400,7 +403,7 @@
             <div class="col-lg-3">
                 <div class="course__item mb-30">
                     <div class="course__thumb">
-                        <a href="coureses-single.html"><img src="assets/images/course/2.png" alt="image"></a>
+                        <a href="coureses-single.html"><img src="<?= asset_url("public/images/course/2.webp")?>" alt="image"></a>
                     </div>
                     <div class="course__inner">
                         <ul>
@@ -428,7 +431,7 @@
             <div class="col-lg-3">
                 <div class="course__item mb-30">
                     <div class="course__thumb">
-                        <a href="coureses-single.html"><img src="assets/images/course/3.png" alt="image"></a>
+                        <a href="coureses-single.html"><img src="<?= asset_url("public/images/course/3.webp")?>" alt="image"></a>
                     </div>
                     <div class="course__inner">
                         <ul>
@@ -456,7 +459,7 @@
             <div class="col-lg-3">
                 <div class="course__item mb-30">
                     <div class="course__thumb">
-                        <a href="coureses-single.html"><img src="assets/images/course/4.png" alt="image"></a>
+                        <a href="coureses-single.html"><img src="<?= asset_url("public/images/course/4.webp")?>" alt="image"></a>
                     </div>
                     <div class="course__inner">
                         <ul>
@@ -538,7 +541,7 @@
     <div class="container">
         <div class="react__title__section text-center">
             <h2 class="react__tittle">Upcoming Events</h2>
-            <img src="assets/images/line.png" alt="image">
+            <img src="<?= asset_url("public/images/line.webp")?>" alt="image">
         </div>
         <div class="event-slider owl-carousel">
             <div class="event__card">
@@ -635,13 +638,13 @@
     <div class="container">
         <div class="react__title__section text-center">
             <h2>What our student saying</h2>
-            <img src="assets/images/line.png" alt="image">
+            <img src="<?= asset_url("public/images/line.webp")?>" alt="image">
         </div>
         <div class="container">
             <div class="client-slider owl-carousel">
                 <div class="single-client">
                     <div class="client-bottom">
-                        <span class="client-author"><img src="assets/images/testimonial/testimonial.png" alt="Testimonials"> </span>
+                        <span class="client-author"><img src="<?= asset_url("public/images/testimonial/testimonial.webp")?>" alt="Testimonials"> </span>
                     </div>
                     <div class="client-content">
                         <span class="client-title">Justin Case <em> Student</em></span>
@@ -654,12 +657,12 @@
                             <em class="icon_star_alt"></em>
                             <span><em>4.9</em> (14 Reviews)</span>
                         </div>
-                        <img class="comma" src="assets/images/testimonial/coma.png" alt="image">
+                        <img class="comma" src="<?= asset_url("public/images/testimonial/coma.webp")?>" alt="image">
                     </div>
                 </div>
                 <div class="single-client">
                     <div class="client-bottom">
-                        <span class="client-author"><img src="assets/images/testimonial/testimonial.png" alt="Testimonials"> </span>
+                        <span class="client-author"><img src="<?= asset_url("public/images/testimonial/testimonial.webp")?>" alt="Testimonials"> </span>
                     </div>
                     <div class="client-content">
                         <span class="client-title">Justin Case <em> Student</em></span>
@@ -672,7 +675,7 @@
                             <em class="icon_star_alt"></em>
                             <span><em>4.9</em> (14 Reviews)</span>
                         </div>
-                        <img class="comma" src="assets/images/testimonial/coma.png" alt="image">
+                        <img class="comma" src="<?= asset_url("public/images/testimonial/coma.webp")?>" alt="image">
                     </div>
                 </div>
             </div>
@@ -686,14 +689,14 @@
     <div class="container blog__width">
         <div class="react__title__section text-center">
             <h2 class="react__tittle"> Echooling News and Blogs </h2>
-            <img src="assets/images/line.png" alt="image">
+            <img src="<?= asset_url("public/images/line.webp")?>" alt="image">
         </div>
         <div class="row">
             <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
                 <div class="blog__card mb-50">
                     <div class="blog__thumb w-img p-relative">
                         <a class="blog__thumb--image" href="blog-details.html">
-                            <img src="assets/images/blog/1.jpg" alt="This the first card image">
+                            <img src="<?= asset_url("public/images/blog/1.webp")?>" alt="This the first card image">
                         </a>
                         <em class="b_date">April 12</em>
                     </div>
@@ -718,7 +721,7 @@
                 <div class="blog__card mb-50">
                     <div class="blog__thumb w-img p-relative">
                         <a class="blog__thumb--image" href="blog-details.html">
-                            <img src="assets/images/blog/2.jpg" alt="This the first card image">
+                            <img src="<?= asset_url("public/images/blog/2.webp")?>" alt="This the first card image">
                         </a>
                         <em class="b_date">April 18</em>
                     </div>
@@ -743,7 +746,7 @@
                 <div class="blog__card mb-50">
                     <div class="blog__thumb w-img p-relative">
                         <a class="blog__thumb--image" href="blog-details.html">
-                            <img src="assets/images/blog/3.jpg" alt="This the first card image">
+                            <img src="<?= asset_url("public/images/blog/3.webp")?>" alt="This the first card image">
                         </a>
                         <em class="b_date">June 16</em>
                     </div>
@@ -768,7 +771,7 @@
                 <div class="blog__card mb-50">
                     <div class="blog__thumb w-img p-relative">
                         <a class="blog__thumb--image" href="blog-details.html">
-                            <img src="assets/images/blog/3.jpg" alt="This the first card image">
+                            <img src="<?= asset_url("public/images/blog/3.webp")?>" alt="This the first card image">
                         </a>
                         <em class="b_date">May 22</em>
                     </div>

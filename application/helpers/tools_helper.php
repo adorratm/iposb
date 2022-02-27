@@ -833,7 +833,7 @@ function show_categories($lang = 'tr')
         endforeach;
     endif;
     // return all hierarchical tree data from in_parent by sending
-    //  initiate parameters 0 is the main parent,news id, all parent ids
+    //  initiate parameters 0 is the main parent,blog id, all parent ids
     return  in_parentt(0,  $lang, $store_all_id);
 }
 /**
@@ -874,7 +874,7 @@ function show_product_categories($checkedValues = null, $lang = 'tr')
         endforeach;
     endif;
     // return all hierarchical tree data from in_parent by sending
-    //  initiate parameters 0 is the main parent,news id, all parent ids
+    //  initiate parameters 0 is the main parent,blog id, all parent ids
     return product_in_parent(0, $checkedValues,  $lang, $store_all_id);
 }
 /**
@@ -975,7 +975,7 @@ function show_header_categories($lang = 'tr')
         endforeach;
     endif;
     // return all hierarchical tree data from in_parent by sending
-    //  initiate parameters 0 is the main parent,news id, all parent ids
+    //  initiate parameters 0 is the main parent,blog id, all parent ids
     return  in_parenttheader(0,  $lang, $store_all_id);
 }
 /**
