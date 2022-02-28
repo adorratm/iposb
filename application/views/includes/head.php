@@ -2430,7 +2430,6 @@
 
         .about__area.about__area_one .about__content {
             padding-top: 60px;
-            padding-left: 60px
         }
 
         .about__area.about__area_one .about__paragraph {
@@ -2466,8 +2465,9 @@
         }
 
         .about__area.about__area_one ul {
-            display: flex;
-            margin-top: 40px
+            list-style: unset;
+            margin-top: 40px;
+            padding-left: 2rem
         }
 
         .about__area.about__area_one ul li .more-about {
@@ -5797,7 +5797,7 @@
         }
 
         .react-contact-page .address-sec {
-            padding: 35px;
+            padding: 30px;
             background: linear-gradient(138.95deg, #f2f4f9 0, rgba(242, 244, 249, 0) 63.81%);
             border-radius: 10px
         }
@@ -5808,7 +5808,9 @@
         }
 
         .react-contact-page .address-sec li .icon {
-            margin-right: 25px
+            margin-right: 25px;
+            min-width: 66px;
+            min-height: 80px
         }
 
         .react-contact-page .address-sec li .text {

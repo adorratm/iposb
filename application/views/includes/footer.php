@@ -33,6 +33,9 @@
                                 <a rel="dofollow" title="<?= lang("phone") ?>" href="tel:<?= str_replace(" ", "", $settings->phone_1) ?>"><i class="fa fa-phone"></i> <?= $settings->phone_1 ?></a>
                             </li>
                             <li>
+                                <a rel="dofollow" title="Whatsapp" target="_blank" href="https://api.whatsapp.com/send?phone=<?= str_replace(" ", "", $settings->phone_2) ?>&amp;text=<?= urlencode(lang("hello") . " " . $settings->company_name) ?>."><i class="fa fa-whatsapp"></i> <?= $settings->phone_2 ?></a>
+                            </li>
+                            <li>
                                 <a rel="dofollow" title="<?= lang("phone") ?>" href="tel:<?= str_replace(" ", "", $settings->phone_3) ?>"><i class="fa fa-mobile"></i> <?= $settings->phone_3 ?></a>
                             </li>
                             <?php if (!empty(clean($settings->address_2))) : ?>
@@ -44,6 +47,9 @@
                                 </li>
                                 <li>
                                     <a rel="dofollow" title="<?= lang("phone") ?>" href="tel:<?= str_replace(" ", "", $settings->phone_1) ?>"><i class="fa fa-phone"></i> <?= $settings->phone_1 ?></a>
+                                </li>
+                                <li>
+                                    <a rel="dofollow" title="Whatsapp" target="_blank" href="https://api.whatsapp.com/send?phone=<?= str_replace(" ", "", $settings->phone_2) ?>&amp;text=<?= urlencode(lang("hello") . " " . $settings->company_name) ?>."><i class="fa fa-whatsapp"></i> <?= $settings->phone_2 ?></a>
                                 </li>
                                 <li>
                                     <a rel="dofollow" title="<?= lang("phone") ?>" href="tel:<?= str_replace(" ", "", $settings->phone_3) ?>"><i class="fa fa-mobile"></i> <?= $settings->phone_3 ?></a>
@@ -275,7 +281,7 @@
             <div class="modal-body">
                 <div class="row text-center justify-content-center">
                     <div class="col">
-                        <a target="_blank" href="https://api.whatsapp.com/send?phone=<?= str_replace(" ", "", $settings->phone_3) ?>&amp;text=<?= urlencode(lang("hello") . " " . $settings->company_name) ?>." class="text-dark-green" data-toggle="tooltip" data-placement="bottom" rel="dofollow" title="Whatsapp" data-title="Whatsapp">
+                        <a target="_blank" href="https://api.whatsapp.com/send?phone=<?= str_replace(" ", "", $settings->phone_2) ?>&amp;text=<?= urlencode(lang("hello") . " " . $settings->company_name) ?>." class="text-dark-green" data-toggle="tooltip" data-placement="bottom" rel="dofollow" title="Whatsapp" data-title="Whatsapp">
                             <i class="fa fa-whatsapp bg-success p-3 text-white"></i> Whatsapp
                         </a>
                     </div>
