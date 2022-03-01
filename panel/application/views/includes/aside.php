@@ -84,6 +84,26 @@
                         </ul>
                     </li>
                 <?php } ?>
+                <?php if (isAllowedViewModule("services")) { ?>
+                    <li class="nav-item <?= ($this->uri->segment(1) == "services") || ($this->uri->segment(1) == "service_categories") ? "active" : "" ?>">
+                        <a class="nav-link <?= ($this->uri->segment(1) == "services") || ($this->uri->segment(1) == "service_categories") ? "active" : "" ?>" href="javascript:void(0);" data-toggle="collapse" data-target="#services_nav">
+                            <i class="fa fa-newspaper"></i>
+                            <span class="nav-link-text">Bölüm İşlemleri</span>
+                        </a>
+                        <ul id="services_nav" class="nav flex-column collapse  <?= ($this->uri->segment(1) == "services") || ($this->uri->segment(1) == "service_categories") ? "show" : "" ?> collapse-level-1">
+                            <li class="nav-item <?= ($this->uri->segment(1) == "services") || ($this->uri->segment(1) == "service_categories") ? "active" : "" ?>">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item  <?= ($this->uri->segment(1) == "service_categories") ? "active" : "" ?>">
+                                        <a class="nav-link <?= ($this->uri->segment(1) == "service_categories") ? "active" : "" ?>" href="<?= base_url("service_categories"); ?>">Bölüm Kategorileri</a>
+                                    </li>
+                                    <li class="nav-item  <?= ($this->uri->segment(1) == "services") ? "active" : "" ?>">
+                                        <a class="nav-link <?= ($this->uri->segment(1) == "services") ? "active" : "" ?>" href="<?= base_url("services"); ?>">Bölümler</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                <?php } ?>
                 <?php if (isAllowedViewModule("users")) { ?>
                     <li class="nav-item <?= ($this->uri->segment(1) == "users" || $this->uri->segment(1) == "user_role") ? "active" : "" ?> ">
                         <a class="nav-link <?= ($this->uri->segment(1) == "users" || $this->uri->segment(1) == "user_role") ? "active" : "" ?>" href="javascript:void(0);" data-toggle="collapse" data-target="#users_nav">
@@ -145,14 +165,6 @@
                         <a class="nav-link" href="<?= base_url("coupons") ?>">
                             <i class="fa fa-tags"></i>
                             <span class="nav-link-text">İndirim Kuponları</span>
-                        </a>
-                    </li>
-                <?php } ?>
-                <?php if (isAllowedViewModule("services")) { ?>
-                    <li class="nav-item <?= ($this->uri->segment(1) == "services") ? "active" : "" ?> ">
-                        <a class="nav-link" href="<?= base_url("services") ?>">
-                            <i class="fa fa-list"></i>
-                            <span class="nav-link-text">Hizmetlerimiz</span>
                         </a>
                     </li>
                 <?php } ?>

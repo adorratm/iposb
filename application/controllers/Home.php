@@ -53,6 +53,7 @@ class Home extends MY_Controller
         $currency = $this->general_model->get("countries", null, ["code" => strto("lower|upper", $this->viewData->lang)]);
         $this->viewData->currency = $currency->currency_code;
         $this->viewData->formatter = new NumberFormatter($locales->code, NumberFormatter::CURRENCY);
+        $this->viewData->dateFormatter = new IntlDateFormatter($locales->code . "_" . (strto("lower|upper", $locales->code)), IntlDateFormatter::SHORT, IntlDateFormatter::SHORT, "Europe/Istanbul");
         $formattedValue = $this->viewData->formatter->formatCurrency(0, $this->viewData->currency);
         $this->viewData->symbol = trim(str_replace('0,00', '', str_replace('0.00', '', $formattedValue)));
         $this->viewData->menus = $this->show_tree('HEADER', $this->viewData->lang);
@@ -432,6 +433,124 @@ class Home extends MY_Controller
     /**
      * -----------------------------------------------------------------------------------------------
      * ...:::!!! ================================== BLOGS =================================== !!!:::...
+     * -----------------------------------------------------------------------------------------------
+     */
+    /**
+     * -----------------------------------------------------------------------------------------------
+     * ...:::!!! ================================ SERVICES ================================= !!!:::...
+     * -----------------------------------------------------------------------------------------------
+     */
+    /**
+     * Services
+     */
+    public function services()
+    {
+        $seo_url = $this->uri->segment(3);
+        $search = null;
+        if (!empty(clean($this->input->get("search")))) :
+            $search = clean($this->input->get("search"));
+        endif;
+        $category_id = null;
+        $category = null;
+        if (!empty($seo_url) && !is_numeric($seo_url)) :
+            $category = $this->general_model->get("service_categories", null, ["isActive" => 1, "lang" => $this->viewData->lang, "seo_url" => $seo_url]);
+            if (!empty($category)) :
+                $category_id = $category->id;
+                $category->seo_url = (!empty($category->seo_url) ? $category->seo_url : null);
+                $category->title = (!empty($category->title) ? $category->title : null);
+            endif;
+        endif;
+        $config = [];
+        $config['base_url'] = (!empty($seo_url) && !is_numeric($seo_url) ? base_url(lang("routes_galleries") . "/{$seo_url}") : base_url(lang("routes_galleries")));
+        $config['uri_segment'] = (!empty($seo_url) && !is_numeric($seo_url) && !empty($this->uri->segment(4)) ? 4 : (!is_numeric($this->uri->segment(3)) ? 3 : 2));
+        $config['use_page_numbers'] = TRUE;
+        $config["full_tag_open"] = "<ul class='pagination justify-content-center'>";
+        $config["first_link"] = "<i class='bx bx-chevrons-left bx-1x'></i>";
+        $config["first_tag_open"] = "<li class='page-item'>";
+        $config["first_tag_close"] = "</li>";
+        $config["prev_link"] = "<i class='bx bx-chevron-left bx-1x'></i>";
+        $config["prev_tag_open"] = "<li class='page-item'>";
+        $config["prev_tag_close"] = "</li>";
+        $config["cur_tag_open"] = "<li class='page-item active'><a class='page-link active' title='" . $this->viewData->settings->company_name . "' rel='dofollow' href='" . str_replace("tr/index.php/", "", current_url()) . "'>";
+        $config["cur_tag_close"] = "</a></li>";
+        $config["num_tag_open"] = "<li class='page-item'>";
+        $config["num_tag_close"] = "</li>";
+        $config["next_link"] = "<i class='bx bx-chevron-right bx-1x'></i>";
+        $config["next_tag_open"] = "<li class='page-item'>";
+        $config["next_tag_close"] = "</li>";
+        $config["last_link"] = "<i class='bx bx-chevrons-right bx-1x'></i>";
+        $config["last_tag_open"] = "<li class='page-item'>";
+        $config["last_tag_close"] = "</li>";
+        $config["full_tag_close"] = "</ul>";
+        $config['attributes'] = array('class' => 'page-link');
+        $config['total_rows'] = (!empty($seo_url) && !is_numeric($seo_url) ? (!empty($search) ? $this->general_model->rowCount("services", ["isActive" => 1, "category_id" => $category_id, "lang" => $this->viewData->lang], ["title" =>  $search, "content" =>  $search, "createdAt" => $search, "updatedAt" =>  $search]) : $this->general_model->rowCount("services", ["isActive" => 1, "category_id" => $category_id, "lang" => $this->viewData->lang])) : (!empty($search) ? $this->general_model->rowCount("services", ["isActive" => 1, "lang" => $this->viewData->lang], ["title" =>  $search, "content" => $search, "createdAt" =>  $search, "updatedAt" =>  $search]) : $this->general_model->rowCount("services", ["isActive" => 1, "lang" => $this->viewData->lang])));
+        $config['per_page'] = 8;
+        $config["num_links"] = 5;
+        $config['reuse_query_string'] = true;
+        $this->pagination->initialize($config);
+        if (!empty($seo_url) && !is_numeric($seo_url)) :
+            $uri_segment = $this->uri->segment(4);
+        elseif (!empty($seo_url) && is_numeric($seo_url)) :
+            $uri_segment = $this->uri->segment(3);
+        else :
+            $uri_segment = $this->uri->segment(3);
+        endif;
+        $offset = (!empty($uri_segment) ? $uri_segment - 1 : 0) * $config['per_page'];
+        $this->viewData->offset = $offset;
+        $this->viewData->per_page = $config['per_page'];
+        $this->viewData->total_rows = $config['total_rows'];
+        $this->viewData->service_category = $category;
+        $this->viewData->services = (!empty($seo_url) && !is_numeric($seo_url) ? (!empty($search) ? $this->general_model->get_all("services", null, null, ['category_id' => $category_id, "isActive" => 1, "lang" => $this->viewData->lang], ["title" =>  $search, "content" =>  $search, "createdAt" => $search, "updatedAt" =>  $search], [], [$config["per_page"], $offset]) : $this->general_model->get_all("services", null, null, ['category_id' => $category_id, "isActive" => 1, "lang" => $this->viewData->lang], [], [], [$config["per_page"], $offset])) : (!empty($search) ? $this->general_model->get_all("services", null, null, ["isActive" => 1, "lang" => $this->viewData->lang], ["title" =>  $search, "content" =>  $search, "createdAt" =>  $search, "updatedAt" =>  $search], [], [$config["per_page"], $offset]) : $this->general_model->get_all("services", null, null, ["isActive" => 1, "lang" => $this->viewData->lang], [], [], [$config["per_page"], $offset])));
+        $this->viewData->categories = $this->general_model->get_all("service_categories", null, "id DESC", ["isActive" => 1]);
+        $this->viewData->latestServices = (!empty($seo_url) && !is_numeric($seo_url) ? $this->general_model->get_all("services", null, "id DESC", ['category_id' => $category_id, "isActive" => 1, "lang" => $this->viewData->lang], [], [], [5]) : $this->general_model->get_all("services", null, "id DESC", ["isActive" => 1, "lang" => $this->viewData->lang], [], [], [5]));
+
+        $this->viewData->meta_title = clean(strto("lower|upper", lang("routes_service"))) . " - " . $this->viewData->settings->company_name;
+        $this->viewData->meta_desc  = str_replace("”", "\"", stripslashes($this->viewData->settings->meta_description));
+        $this->viewData->meta_keyw  = clean($this->viewData->settings->meta_keywords);
+
+        $this->viewData->og_url                 = clean(base_url(lang("routes_service")));
+        $this->viewData->og_image           = clean(get_picture("settings_v", $this->viewData->settings->logo));
+        $this->viewData->og_type          = "article";
+        $this->viewData->og_title           = clean(strto("lower|upper", lang("routes_service"))) . " - " . $this->viewData->settings->company_name;
+        $this->viewData->og_description           = clean($this->viewData->settings->meta_description);
+        $this->viewData->links = $this->pagination->create_links();
+        if (empty($this->viewData->services)) :
+            $this->viewFolder = "404_v/index";
+        else :
+            $this->viewFolder = "services_v/index";
+        endif;
+        $this->render();
+    }
+    /**
+     * Service Detail
+     */
+    public function service_detail($seo_url)
+    {
+        $this->viewData->service = $this->general_model->get("services", null, ["isActive" => 1, "lang" => $this->viewData->lang, 'seo_url' => $seo_url]);
+        if (!empty($this->viewData->service->category_id)) :
+            $this->viewData->category = $this->general_model->get("service_categories", null, ["id" => $this->viewData->service->category_id, "isActive" => 1, "lang" => $this->viewData->lang]);
+        endif;
+        $this->viewData->categories = $this->general_model->get_all("service_categories", null, "id DESC", ["isActive" => 1, "lang" => $this->viewData->lang]);
+        $this->viewData->latestService = (!empty($this->viewData->service->category_id) ? $this->general_model->get_all("services", null, "id DESC", ['category_id' => $this->viewData->services->category_id, "isActive" => 1, "lang" => $this->viewData->lang], [], [], [5]) : $this->general_model->get_all("services", null, "id DESC", ["isActive" => 1, "lang" => $this->viewData->lang], [], [], [5]));
+
+        $this->viewData->meta_title = strto("lower|upper", $this->viewData->service->title) . " - " . $this->viewData->settings->company_name;
+        $this->viewData->meta_desc  = clean(str_replace("”", "\"", stripslashes($this->viewData->service->content)));
+        $this->viewData->meta_keyw  = clean($this->viewData->settings->meta_keywords);
+        $this->viewData->og_url                 = clean(base_url(lang("routes_service") . "/" . lang("routes_service_detail") . "/" . $seo_url));
+        $this->viewData->og_image           = clean(get_picture("services_v", $this->viewData->service->img_url));
+        $this->viewData->og_type          = "article";
+        $this->viewData->og_title           = strto("lower|upper", $this->viewData->service->title) . " - " . $this->viewData->settings->company_name;
+        $this->viewData->og_description           = clean(str_replace("”", "\"", stripslashes($this->viewData->service->content)));
+        if (empty($this->viewData->service)) :
+            $this->viewFolder = "404_v/index";
+        else :
+            $this->viewFolder = "service_detail_v/index";
+        endif;
+        $this->render();
+    }
+    /**
+     * -----------------------------------------------------------------------------------------------
+     * ...:::!!! ================================ SERVICES ================================= !!!:::...
      * -----------------------------------------------------------------------------------------------
      */
     /**
@@ -2877,6 +2996,28 @@ class Home extends MY_Controller
             endforeach;
         endif;
         /**
+         * Service Categories
+         */
+        $service_categories = $this->general_model->get_all("service_categories", null, "rank ASC", ["isActive" => 1, "lang" => $this->viewData->lang]);
+        if (!empty($service_categories)) :
+            foreach ($service_categories as $k => $v) :
+                if (!empty($v->seo_url)) :
+                    $this->sitemapmodel->add(base_url(lang("routes_services") . "/{$v->seo_url}"), NULL, 'always', 1);
+                endif;
+            endforeach;
+        endif;
+        /**
+         * Services
+         */
+        $services = $this->general_model->get_all("services", null, "id DESC", ['isActive' => 1, "lang" => $this->viewData->lang], [], [], []);
+        if (!empty($services)) :
+            foreach ($services as $k => $v) :
+                if (!empty($v->seo_url)) :
+                    $this->sitemapmodel->add(base_url(lang("routes_services") . "/" . lang("routes_service_detail") . "/{$v->seo_url}"), NULL, 'always', 1);
+                endif;
+            endforeach;
+        endif;
+        /**
          * Product Categories
          */
         $product_categories = $this->general_model->get_all("product_categories", null, "rank ASC", ["isActive" => 1, "lang" => $this->viewData->lang]);
@@ -2964,6 +3105,28 @@ class Home extends MY_Controller
             foreach ($blogs as $k => $v) :
                 if (!empty($v->seo_url)) :
                     $this->sitemapmodel->add(base_url(lang("routes_blog") . "/" . lang("routes_blog_detail") . "/{$v->seo_url}"), NULL, 'always', 1);
+                endif;
+            endforeach;
+        endif;
+        /**
+         * Service Categories
+         */
+        $service_categories = $this->general_model->get_all("service_categories", null, "rank ASC", ["isActive" => 1, "lang" => $this->viewData->lang]);
+        if (!empty($service_categories)) :
+            foreach ($service_categories as $k => $v) :
+                if (!empty($v->seo_url)) :
+                    $this->sitemapmodel->add(base_url(lang("routes_services") . "/{$v->seo_url}"), NULL, 'always', 1);
+                endif;
+            endforeach;
+        endif;
+        /**
+         * Services
+         */
+        $services = $this->general_model->get_all("services", null, "id DESC", ['isActive' => 1, "lang" => $this->viewData->lang], [], [], []);
+        if (!empty($services)) :
+            foreach ($services as $k => $v) :
+                if (!empty($v->seo_url)) :
+                    $this->sitemapmodel->add(base_url(lang("routes_services") . "/" . lang("routes_service_detail") . "/{$v->seo_url}"), NULL, 'always', 1);
                 endif;
             endforeach;
         endif;
