@@ -852,7 +852,7 @@
             position: absolute;
             z-index: 1;
             left: 50%;
-            top: 80%;
+            top: 50%;
             transform: translate(-50%, -50%)
         }
 
@@ -1699,7 +1699,8 @@
         .home-sliders .owl-nav {
             position: absolute;
             display: block;
-            top: 43%;
+            top: 50%;
+            transform: translate(0, -50%);
             right: unset;
             width: 100%;
             opacity: 1;
@@ -6916,7 +6917,7 @@
             background: 0 0;
             color: #fff;
             display: inline-block;
-            padding: 4px 23px;
+            padding: 12px 23px;
             border-radius: 0 3px 3px 0;
             font-size: 16px;
             border: none;
@@ -7796,8 +7797,8 @@
 
         #backscrollUp {
             position: fixed;
-            bottom: 40px;
-            right: 15px;
+            bottom: 35px;
+            right: 22px;
             transition: all .5s ease;
             z-index: 99999;
             cursor: pointer;
@@ -8028,9 +8029,67 @@
             align-items: center
         }
 
-        .home-sliders.owl-carousel,
-        .home-sliders.owl-carousel .owl-stage {
-            max-height: 770px;
+        .fixed-phone {
+            position: fixed;
+            bottom: 135px;
+            right: 16px;
+            border: 2px solid #fff;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 9;
+            -webkit-box-shadow: -4px 1px 7px 0 rgb(84 84 84 / 35%);
+            box-shadow: -1px 1px 5px 0 rgb(84 84 84 / 35%)
+        }
+
+        .fixed-whatsapp {
+            position: fixed;
+            bottom: 80px;
+            right: 16px;
+            border: 2px solid #fff;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 9;
+            -webkit-box-shadow: -4px 1px 7px 0 rgba(84, 84, 84, .35);
+            box-shadow: -1px 1px 5px 0 rgba(84, 84, 84, .35)
+        }
+
+        .fixed-maps i,
+        .fixed-phone i,
+        .fixed-phone2 i,
+        .fixed-whatsapp i,
+        .fixed-whatsapp2 i {
+            height: 42px;
+            width: 42px;
+            line-height: 42px;
+            font-size: 20px;
+            margin: 2px;
+            color: #fff;
+            text-align: center;
+            border-radius: 50%
+        }
+
+        .fixed-maps:hover i,
+        .fixed-phone2:hover i,
+        .fixed-phone:hover i,
+        .fixed-whatsapp2:hover i,
+        .fixed-whatsapp:hover i {
+            animation: shake 1s cubic-bezier(.36, .07, .19, .97) both;
+            transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            perspective: 1000px;
+            color: #fff
+        }
+
+        .fixed-maps {
+            position: fixed;
+            bottom: 190px;
+            right: 16px;
+            border: 2px solid #fff;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 9;
+            -webkit-box-shadow: -4px 1px 7px 0 rgb(84 84 84 / 35%);
+            box-shadow: -1px 1px 5px 0 rgb(84 84 84 / 35%)
         }
     </style>
 
@@ -8060,6 +8119,6 @@
     <!--================= Preloader Section Start Here =================-->
     <div id="react__preloader">
         <div id="react__circle_loader"></div>
-        <div class="react__loader_logo"><img data-src="<?= get_picture("settings_v", $settings->logo) ?>" alt="<?= $settings->company_name ?>" class="img-fluid lazyload"></div>
+        <div class="react__loader_logo"><img src="<?= get_picture("settings_v", $settings->favicon) ?>" data-src="<?= get_picture("settings_v", $settings->favicon) ?>" alt="<?= $settings->company_name ?>" class="img-fluid lazyload"></div>
     </div>
     <!--================= Preloader Section End Here =================-->

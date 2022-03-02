@@ -167,18 +167,18 @@
 
 <!--================= Scroll to Top Start =================-->
 <div id="backscrollUp" class="home">
-    <span aria-hidden="true" class="arrow_carrot-up"></span>
+    <span aria-hidden="true" class="fa fa-arrow-up"></span>
 </div>
 <!--================= Scroll to Top End =================-->
 <!-- Jquery -->
 <script src="<?= asset_url("public/js/jquery.min.js") ?>"></script>
 <!-- #Jquery -->
 <!--FOOTER END-->
-<a class="fixed-maps bg-primary" href="<?= base_url() ?>" data-bs-toggle="modal" data-bs-target="#directionsModal" title="<?= lang("getDirections") ?>" data-toggle="tooltip" data-title="<?= lang("getDirections") ?>" data-placement="left"><i class="fa fa-map"></i></a>
+<a rel="dofollow" class="fixed-maps bg-primary map-address" href="<?= base_url() ?>" data-destination="<?= $settings->address ?>" title="<?= lang("getDirections") ?>" data-bs-toggle="tooltip" data-bs-placement="top"><i class="fa fa-map"></i></span></a>
 
-<a rel="dofollow" class="fixed-phone bg-danger" href="<?= base_url() ?>" data-bs-toggle="modal" data-bs-target="#phoneModal" data-toggle="tooltip" data-title="<?= lang("phone_1") ?>" data-placement="left" title="<?= lang("phone_1") ?>"><i class="fa fa-phone"></i></a>
+<a rel="dofollow" class="fixed-phone bg-danger" href="<?= base_url() ?>" data-bs-toggle="modal" data-bs-target="#phoneModal" title="<?= lang("phone") ?>" data-toggle="tooltip" data-bs-placement="top" ><i class="fa fa-phone"></i></a>
 
-<a rel="dofollow" class="fixed-whatsapp bg-success" data-bs-toggle="modal" data-bs-target="#whatsappModal" href="<?= base_url() ?>" title="WhatsApp" data-toggle="tooltip" data-title="WhatsApp" data-placement="left"><i class="fa fa-whatsapp"></i></a>
+<a rel="dofollow" target="_blank" class="fixed-whatsapp bg-success" href="https://api.whatsapp.com/send?phone=<?= str_replace(" ", "", $settings->phone_2) ?>&amp;text=<?= urlencode(lang("hello") . " " . $settings->company_name) ?>." title="WhatsApp" data-bs-toggle="tooltip" data-bs-placement="top"><i class="fa fa-whatsapp"></i></a>
 
 <!--layout end-->
 <!-- SCRIPTS -->
@@ -244,55 +244,7 @@
     });
 </script>
 <?php $this->load->view("includes/alert") ?>
-<div class="modal fade" id="directionsModal" tabindex="-1" aria-labelledby="directionsModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="directionsModalLabel"><?= lang("getDirections") ?></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="<?= lang("close") ?>"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row text-center justify-content-center">
-                    <div class="col">
-                        <a href="<?= base_url() ?>" class="map-address text-dark-green" data-toggle="tooltip" data-placement="bottom" data-destination="<?= $settings->address ?>" rel="dofollow" title="<?= lang("getDirections") ?>" data-title="<?= lang("getDirections") ?>">
-                            <i class="fa fa-map bg-primary p-3 text-white"></i> <?= lang("departmentOne") ?>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="<?= base_url() ?>" class="map-address text-dark-green" data-toggle="tooltip" data-placement="bottom" data-destination="<?= $settings->address_2 ?>" rel="dofollow" title="<?= lang("getDirections") ?>" data-title="<?= lang("getDirections") ?>">
-                            <i class="fa fa-map bg-primary p-3 text-white"></i> <?= lang("departmentTwo") ?>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="common-btn" data-bs-dismiss="modal"><?= lang("close") ?></button>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="whatsappModal" tabindex="-1" aria-labelledby="whatsappModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="whatsappModalLabel">Whatsapp</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="<?= lang("close") ?>"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row text-center justify-content-center">
-                    <div class="col">
-                        <a target="_blank" href="https://api.whatsapp.com/send?phone=<?= str_replace(" ", "", $settings->phone_2) ?>&amp;text=<?= urlencode(lang("hello") . " " . $settings->company_name) ?>." class="text-dark-green" data-toggle="tooltip" data-placement="bottom" rel="dofollow" title="Whatsapp" data-title="Whatsapp">
-                            <i class="fa fa-whatsapp bg-success p-3 text-white"></i> Whatsapp
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="common-btn" data-bs-dismiss="modal"><?= lang("close") ?></button>
-            </div>
-        </div>
-    </div>
-</div>
+
 <div class="modal fade" id="phoneModal" tabindex="-1" aria-labelledby="phoneModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
         <div class="modal-content">
@@ -304,18 +256,18 @@
                 <div class="row text-center justify-content-center">
                     <div class="col">
                         <a target="_blank" href="tel:<?= str_replace(" ", "", $settings->phone_2) ?>" class="text-dark-green" data-toggle="tooltip" data-placement="bottom" rel="dofollow" title="<?= lang("phone") ?>" data-title="<?= lang("phone") ?>">
-                            <i class="fa fa-phone bg-danger p-3 text-white"></i> <?= lang("departmentOne") ?>
+                            <i class="fa fa-phone bg-danger p-3 text-white"></i> <?= $settings->phone_2 ?>
                         </a>
                     </div>
                     <div class="col">
                         <a target="_blank" href="tel:<?= str_replace(" ", "", $settings->phone_3) ?>" class="text-dark-green" data-toggle="tooltip" data-placement="bottom" rel="dofollow" title="<?= lang("phone") ?>" data-title="<?= lang("phone") ?>">
-                            <i class="fa fa-phone bg-danger p-3 text-white"></i> <?= lang("departmentTwo") ?>
+                            <i class="fa fa-phone bg-danger p-3 text-white"></i> <?= $settings->phone_3 ?>
                         </a>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="common-btn" data-bs-dismiss="modal"><?= lang("close") ?></button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><?= lang("close") ?></button>
             </div>
         </div>
     </div>

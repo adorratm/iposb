@@ -487,7 +487,7 @@ class Home extends MY_Controller
         $config["full_tag_close"] = "</ul>";
         $config['attributes'] = array('class' => '');
         $config['total_rows'] = (!empty($seo_url) && !is_numeric($seo_url) ? (!empty($search) ? $this->general_model->rowCount("services", ["isActive" => 1, "category_id" => $category_id, "lang" => $this->viewData->lang], ["title" =>  $search, "content" =>  $search, "createdAt" => $search, "updatedAt" =>  $search]) : $this->general_model->rowCount("services", ["isActive" => 1, "category_id" => $category_id, "lang" => $this->viewData->lang])) : (!empty($search) ? $this->general_model->rowCount("services", ["isActive" => 1, "lang" => $this->viewData->lang], ["title" =>  $search, "content" => $search, "createdAt" =>  $search, "updatedAt" =>  $search]) : $this->general_model->rowCount("services", ["isActive" => 1, "lang" => $this->viewData->lang])));
-        $config['per_page'] = 2;
+        $config['per_page'] = 8;
         $config["num_links"] = 5;
         $config['reuse_query_string'] = true;
         $this->pagination->initialize($config);
@@ -534,11 +534,13 @@ class Home extends MY_Controller
     public function service_detail($seo_url)
     {
         $this->viewData->service = $this->general_model->get("services", null, ["isActive" => 1, "lang" => $this->viewData->lang, 'seo_url' => $seo_url]);
+        
         if (!empty($this->viewData->service->category_id)) :
             $this->viewData->category = $this->general_model->get("service_categories", null, ["id" => $this->viewData->service->category_id, "isActive" => 1, "lang" => $this->viewData->lang]);
         endif;
+        
         $this->viewData->categories = $this->general_model->get_all("service_categories", null, "id DESC", ["isActive" => 1, "lang" => $this->viewData->lang]);
-        $this->viewData->latestService = (!empty($this->viewData->service->category_id) ? $this->general_model->get_all("services", null, "id DESC", ['category_id' => $this->viewData->services->category_id, "isActive" => 1, "lang" => $this->viewData->lang], [], [], [5]) : $this->general_model->get_all("services", null, "id DESC", ["isActive" => 1, "lang" => $this->viewData->lang], [], [], [5]));
+        $this->viewData->latestServices = (!empty($this->viewData->service->category_id) ? $this->general_model->get_all("services", null, "id DESC", ["id!="=> $this->viewData->service->id,'category_id' => $this->viewData->service->category_id, "isActive" => 1, "lang" => $this->viewData->lang], [], [], [5]) : $this->general_model->get_all("services", null, "id DESC", ["isActive" => 1, "lang" => $this->viewData->lang], [], [], [5]));
 
         $this->viewData->meta_title = strto("lower|upper", $this->viewData->service->title) . " - " . $this->viewData->settings->company_name;
         $this->viewData->meta_desc  = clean(str_replace("”", "\"", stripslashes($this->viewData->service->content)));

@@ -135,10 +135,10 @@
             <?php foreach ($slides as $key => $value) : ?>
                 <div class="single-slide">
                     <div class="slider-img">
-                        <img <?= ($i != 0 ? "loading='lazy'" : null) ?> width="1920" height="1280" class="lazyload img-fluid w-100 owl-lazy" data-src="<?= get_picture("slides_v", $value->img_url) ?>" alt="<?= $value->title ?>">
+                        <img width="1920" height="1280" class="lazyload img-fluid w-100 owl-lazy" data-src="<?= get_picture("slides_v", $value->img_url) ?>" alt="<?= $value->title ?>">
                     </div>
                     <div class="container">
-                        <div class="slider-content">
+                        <div class="slider-content d-none">
                             <div class="content-part">
                                 <span class="slider-pretitle"><?= $value->title ?></span>
                                 <h2 class="slider-title"><?= $value->description ?></h2>
