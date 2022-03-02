@@ -89,6 +89,10 @@ class Settings extends MY_Controller
                 echo json_encode(["success" => false, "title" => "Başarısız!", "message" => "Ayar Eklenirken Hata Oluştu. Blog Logosu Seçtiğinizden Emin Olup, Lütfen Tekrar Deneyin."]);
                 die();
             endif;
+            if (empty($_FILES["service_logo"]["name"])) :
+                echo json_encode(["success" => false, "title" => "Başarısız!", "message" => "Ayar Eklenirken Hata Oluştu. Bölüm Logosu Seçtiğinizden Emin Olup, Lütfen Tekrar Deneyin."]);
+                die();
+            endif;
             if (empty($_FILES["about_logo"]["name"])) :
                 echo json_encode(["success" => false, "title" => "Başarısız!", "message" => "Ayar Eklenirken Hata Oluştu. Kurumsal Logosunu Seçtiğinizden Emin Olup, Lütfen Tekrar Deneyin."]);
                 die();
@@ -102,6 +106,7 @@ class Settings extends MY_Controller
             $favicon = upload_picture("favicon", "uploads/$this->viewFolder");
             $contact_logo = upload_picture("contact_logo", "uploads/$this->viewFolder");
             $blog_logo = upload_picture("blog_logo", "uploads/$this->viewFolder");
+            $service_logo = upload_picture("service_logo", "uploads/$this->viewFolder");
             $about_logo = upload_picture("about_logo", "uploads/$this->viewFolder");
             $gallery_logo = upload_picture("gallery_logo", "uploads/$this->viewFolder");
             $product_logo = upload_picture("product_logo", "uploads/$this->viewFolder");
@@ -117,48 +122,53 @@ class Settings extends MY_Controller
                             $data["contact_logo"] = $contact_logo["file_name"];
                             if ($blog_logo["success"]) :
                                 $data["blog_logo"] = $blog_logo["file_name"];
-                                if ($about_logo["success"]) :
-                                    $data["about_logo"] = $about_logo["file_name"];
-                                    if ($gallery_logo["success"]) :
-                                        $data["gallery_logo"] = $gallery_logo["file_name"];
-                                        if ($product_logo["success"]) :
-                                            $data["product_logo"] = $product_logo["file_name"];
-                                            if ($product_detail_logo["success"]) :
-                                                $data["product_detail_logo"] = $product_detail_logo["file_name"];
-                                                $data["address"] = $this->input->post("address");
-                                                $data["address_2"] = $this->input->post("address_2");
-                                                $data["favicon"] = $favicon["file_name"];
-                                                $data["isActive"] = 1;
-                                                $data["rank"] = $getRank + 1;
-                                                $data["map"] = htmlspecialchars(html_entity_decode($this->input->post("map")));
-                                                $data["map_2"] = htmlspecialchars(html_entity_decode($this->input->post("map_2")));
-                                                $data["about_us"] = $this->input->post("about_us");
-                                                $data["metrica"] = $this->input->post("metrica");
-                                                $data["analytics"] = $this->input->post("analytics");
-                                                $data["live_support"] = $this->input->post("live_support");
-                                                if (!empty($data["weddingGifts"])) :
-                                                    $data["weddingGifts"] = implode(",", $data["weddingGifts"]);
-                                                endif;
-                                                $insert = $this->settings_model->add($data);
-                                                if ($insert) :
-                                                    $content = file_get_contents(FCPATH . "assets/language/language.json", "r");
-                                                    $create = fopen(FCPATH . "assets/language/" . $data["lang"] . ".json", "w");
-                                                    $create = fwrite($create, $content);
-                                                    echo json_encode(["success" => true, "title" => "Başarılı!", "message" => "Ayar Başarıyla Eklendi."]);
+                                if ($service_logo["success"]) :
+                                    $data["service_logo"] = $service_logo["file_name"];
+                                    if ($about_logo["success"]) :
+                                        $data["about_logo"] = $about_logo["file_name"];
+                                        if ($gallery_logo["success"]) :
+                                            $data["gallery_logo"] = $gallery_logo["file_name"];
+                                            if ($product_logo["success"]) :
+                                                $data["product_logo"] = $product_logo["file_name"];
+                                                if ($product_detail_logo["success"]) :
+                                                    $data["product_detail_logo"] = $product_detail_logo["file_name"];
+                                                    $data["address"] = $this->input->post("address");
+                                                    $data["address_2"] = $this->input->post("address_2");
+                                                    $data["favicon"] = $favicon["file_name"];
+                                                    $data["isActive"] = 1;
+                                                    $data["rank"] = $getRank + 1;
+                                                    $data["map"] = htmlspecialchars(html_entity_decode($this->input->post("map")));
+                                                    $data["map_2"] = htmlspecialchars(html_entity_decode($this->input->post("map_2")));
+                                                    $data["about_us"] = $this->input->post("about_us");
+                                                    $data["metrica"] = $this->input->post("metrica");
+                                                    $data["analytics"] = $this->input->post("analytics");
+                                                    $data["live_support"] = $this->input->post("live_support");
+                                                    if (!empty($data["weddingGifts"])) :
+                                                        $data["weddingGifts"] = implode(",", $data["weddingGifts"]);
+                                                    endif;
+                                                    $insert = $this->settings_model->add($data);
+                                                    if ($insert) :
+                                                        $content = file_get_contents(FCPATH . "assets/language/language.json", "r");
+                                                        $create = fopen(FCPATH . "assets/language/" . $data["lang"] . ".json", "w");
+                                                        $create = fwrite($create, $content);
+                                                        echo json_encode(["success" => true, "title" => "Başarılı!", "message" => "Ayar Başarıyla Eklendi."]);
+                                                    else :
+                                                        echo json_encode(["success" => false, "title" => "Başarısız!", "message" => "Ayar Eklenirken Hata Oluştu, Lütfen Tekrar Deneyin."]);
+                                                    endif;
                                                 else :
-                                                    echo json_encode(["success" => false, "title" => "Başarısız!", "message" => "Ayar Eklenirken Hata Oluştu, Lütfen Tekrar Deneyin."]);
+                                                    echo json_encode(["success" => false, "title" => "Başarısız!", "message" => "Ayar Eklenirken Hata Oluştu. Ürün Detay Logosunu Seçtiğinizden Emin Olup, Lütfen Tekrar Deneyin."]);
                                                 endif;
                                             else :
-                                                echo json_encode(["success" => false, "title" => "Başarısız!", "message" => "Ayar Eklenirken Hata Oluştu. Ürün Detay Logosunu Seçtiğinizden Emin Olup, Lütfen Tekrar Deneyin."]);
+                                                echo json_encode(["success" => false, "title" => "Başarısız!", "message" => "Ayar Eklenirken Hata Oluştu. Ürünler Logosunu Seçtiğinizden Emin Olup, Lütfen Tekrar Deneyin."]);
                                             endif;
                                         else :
-                                            echo json_encode(["success" => false, "title" => "Başarısız!", "message" => "Ayar Eklenirken Hata Oluştu. Ürünler Logosunu Seçtiğinizden Emin Olup, Lütfen Tekrar Deneyin."]);
+                                            echo json_encode(["success" => false, "title" => "Başarısız!", "message" => "Ayar Eklenirken Hata Oluştu. Galeri Logosunu Seçtiğinizden Emin Olup, Lütfen Tekrar Deneyin."]);
                                         endif;
                                     else :
-                                        echo json_encode(["success" => false, "title" => "Başarısız!", "message" => "Ayar Eklenirken Hata Oluştu. Galeri Logosunu Seçtiğinizden Emin Olup, Lütfen Tekrar Deneyin."]);
+                                        echo json_encode(["success" => false, "title" => "Başarısız!", "message" => "Ayar Eklenirken Hata Oluştu. Kurumsal Logosunu Seçtiğinizden Emin Olup, Lütfen Tekrar Deneyin."]);
                                     endif;
                                 else :
-                                    echo json_encode(["success" => false, "title" => "Başarısız!", "message" => "Ayar Eklenirken Hata Oluştu. Kurumsal Logosunu Seçtiğinizden Emin Olup, Lütfen Tekrar Deneyin."]);
+                                    echo json_encode(["success" => false, "title" => "Başarısız!", "message" => "Ayar Eklenirken Hata Oluştu. Bölüm Logosusunu Seçtiğinizden Emin Olup, Lütfen Tekrar Deneyin."]);
                                 endif;
                             else :
                                 echo json_encode(["success" => false, "title" => "Başarısız!", "message" => "Ayar Eklenirken Hata Oluştu. Blog Logosusunu Seçtiğinizden Emin Olup, Lütfen Tekrar Deneyin."]);
@@ -246,6 +256,15 @@ class Settings extends MY_Controller
                         $data["blog_logo"] = $image["file_name"];
                     else :
                         echo json_encode(["success" => false, "title" => "Başarısız!", "message" => "Ayar Güncelleştirilirken Hata Oluştu. Blog Logosusunu Seçtiğinizden Emin Olup, Lütfen Tekrar Deneyin."]);
+                        die();
+                    endif;
+                endif;
+                if (!empty($_FILES["service_logo"]["name"])) :
+                    $image = upload_picture("service_logo", "uploads/$this->viewFolder");
+                    if ($image["success"]) :
+                        $data["service_logo"] = $image["file_name"];
+                    else :
+                        echo json_encode(["success" => false, "title" => "Başarısız!", "message" => "Ayar Güncelleştirilirken Hata Oluştu. Bölüm Logosusunu Seçtiğinizden Emin Olup, Lütfen Tekrar Deneyin."]);
                         die();
                     endif;
                 endif;

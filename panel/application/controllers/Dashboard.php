@@ -20,6 +20,7 @@ class Dashboard extends CI_Controller
     }
     public function index()
     {
+        redirect(base_url("settings"));
         $whereOrder["status"] = 'Tamamlandı.';
         $items = $this->general_model->get_all("orders", [], [], $whereOrder);
         $this->viewData->viewFolder = $this->viewFolder;

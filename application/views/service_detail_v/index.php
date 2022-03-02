@@ -45,7 +45,7 @@
                                 <li><a style="font-size: 13px;color: black;font-weight: 700;" rel="dofollow" href="<?= base_url(lang("routes_services") . "/{$v->seo_url}") ?>" title="<?= $v->title ?>"> <?= lang("serviceCategories") ?> <span> <?= $v->title ?></span></a></li>
                             <?php endif ?>
                         <?php endforeach ?>
-                        <li><a href="javascript:void(0)"><i class="bx bx-time"></i> <?= iconv("ISO-8859-9", "UTF-8", strftime("%d %B %Y, %A %X", strtotime($service->updatedAt))); ?></a></li>
+                        <li><a href="javascript:void(0)"><i class="bx bx-time"></i> <?= $dateFormatter->format(strtotime($service->updatedAt)); ?></a></li>
                     </ul>
                     <p><?= $service->content ?></p>
                 </div>

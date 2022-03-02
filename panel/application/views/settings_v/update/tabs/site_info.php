@@ -35,25 +35,25 @@
             <input class="form-control form-control-sm rounded-0" placeholder="Fax numaranız (opsiyonel)" name="fax_1" value="<?= $item->fax_1; ?>">
         </div>
     </div>
-    <div class="row">
+    <div class="row d-none">
         <div class="form-group col-md-6">
             <label>Ücretsiz Kargo Minimum Sepet Tutarı</label>
-            <input type="number" class="form-control form-control-sm rounded-0" min="0" value="<?= $item->shippingMinPrice; ?>" placeholder="Ücretsiz Kargo Minimum Sepet Tutarı" name="shippingMinPrice">
+            <input disabled type="number" class="form-control form-control-sm rounded-0" min="0" value="<?= $item->shippingMinPrice; ?>" placeholder="Ücretsiz Kargo Minimum Sepet Tutarı" name="shippingMinPrice">
         </div>
         <div class="form-group col-md-6">
             <label>Kargo Tutarı</label>
-            <input type="number" class="form-control form-control-sm rounded-0" min="0" value="<?= $item->shippingPrice; ?>" placeholder="Kargo Tutarı" name="shippingPrice">
+            <input disabled type="number" class="form-control form-control-sm rounded-0" min="0" value="<?= $item->shippingPrice; ?>" placeholder="Kargo Tutarı" name="shippingPrice">
         </div>
     </div>
-    <div class="row">
+    <div class="row d-none">
         <div class="form-group col-md-12">
             <label>Düğün Paketi İndirim Oranı (%)</label>
-            <input type="number" class="form-control form-control-sm rounded-0" min="0" value="<?= $item->weddingDiscount; ?>" placeholder="Düğün Paketi İndirim Oranı" name="weddingDiscount">
+            <input disabled type="number" class="form-control form-control-sm rounded-0" min="0" value="<?= $item->weddingDiscount; ?>" placeholder="Düğün Paketi İndirim Oranı" name="weddingDiscount">
         </div>
         <div class="form-group col-md-12">
             <label>Düğün Paketi Hediyeleri (',' Virgül ile ayırabilirsiniz.)</label>
             <?php $gifts = explode(",", $item->weddingGifts) ?>
-            <select name="weddingGifts[]" multiple id="weddingGifts" class="tagsInput form-control">
+            <select disabled name="weddingGifts[]" multiple id="weddingGifts" class="tagsInput form-control">
                 <?php foreach ($gifts as $key => $value) : ?>
                     <option selected value="<?= $value ?>"><?= $value ?></option>
                 <?php endforeach; ?>

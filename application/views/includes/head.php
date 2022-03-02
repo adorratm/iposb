@@ -4303,7 +4303,7 @@
         .back__course__page_grid.back__course__page_grid_left .back-pagination li a {
             border: 2px solid rgba(15, 18, 22, .1);
             box-shadow: none;
-            line-height: 34px
+            line-height: 36px
         }
 
         .back__course__page_grid.back__course__page_grid_left .back-pagination li a:hover {

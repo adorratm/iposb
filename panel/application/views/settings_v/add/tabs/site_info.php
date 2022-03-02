@@ -32,24 +32,24 @@
             <input class="form-control form-control-sm rounded-0" placeholder="Diğer fax numaranız (opsiyonel)" name="fax_1">
         </div>
     </div>
-    <div class="row">
+    <div class="row d-none">
         <div class="form-group col-md-6">
             <label>Ücretsiz Kargo Minimum Sepet Tutarı</label>
-            <input type="number" class="form-control form-control-sm rounded-0" min="0" placeholder="Ücretsiz Kargo Minimum Sepet Tutarı" name="shippingMinPrice">
+            <input disabled type="number" class="form-control form-control-sm rounded-0" min="0" placeholder="Ücretsiz Kargo Minimum Sepet Tutarı" name="shippingMinPrice">
         </div>
         <div class="form-group col-md-6">
             <label>Kargo Tutarı</label>
-            <input type="number" class="form-control form-control-sm rounded-0" min="0" placeholder="Kargo Tutarı" name="shippingPrice">
+            <input disabled type="number" class="form-control form-control-sm rounded-0" min="0" placeholder="Kargo Tutarı" name="shippingPrice">
         </div>
     </div>
-    <div class="row">
+    <div class="row d-none">
         <div class="form-group col-md-12">
             <label>Düğün Paketi İndirim Oranı (%)</label>
-            <input type="number" class="form-control form-control-sm rounded-0" min="0" value="0" placeholder="Düğün Paketi İndirim Oranı" name="weddingDiscount">
+            <input disabled type="number" class="form-control form-control-sm rounded-0" min="0" value="0" placeholder="Düğün Paketi İndirim Oranı" name="weddingDiscount">
         </div>
         <div class="form-group col-md-12">
             <label>Düğün Paketi Hediyeleri (',' Virgül ile ayırabilirsiniz.)</label>
-            <select name="weddingGifts[]" multiple id="weddingGifts" class="tagsInput form-control">
+            <select disabled name="weddingGifts[]" multiple id="weddingGifts" class="tagsInput form-control">
                 
             </select>
         </div>
