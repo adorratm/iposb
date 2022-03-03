@@ -71,6 +71,7 @@ function seo($str = null, $options = [])
         'š' => 's', 'ū' => 'u', 'ž' => 'z'
     ];
     $str = preg_replace(array_keys($options['replacements']), $options['replacements'], $str);
+    $str = preg_replace('/&amp;amp;amp;amp;amp;amp;amp;amp;.+?;/', '-', $str);
     if ($options['transliterate']) :
         $str = str_replace(array_keys($char_map), $char_map, $str);
     endif;

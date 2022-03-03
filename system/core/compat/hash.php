@@ -6,7 +6,7 @@
  *
  * This content is released under the MIT License (MIT)
  *
- * Copyright (c) 2014 - 2019, British Columbia Institute of Technology
+ * Copyright (c) 2019 - 2022, CodeIgniter Foundation
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -30,6 +30,7 @@
  * @author	EllisLab Dev Team
  * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
  * @copyright	Copyright (c) 2014 - 2019, British Columbia Institute of Technology (https://bcit.ca/)
+ * @copyright	Copyright (c) 2019 - 2022, CodeIgniter Foundation (https://codeigniter.com/)
  * @license	https://opensource.org/licenses/MIT	MIT License
  * @link	https://codeigniter.com
  * @since	Version 3.0.0
@@ -44,8 +45,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @subpackage	CodeIgniter
  * @category	Compatibility
  * @author		Andrey Andreev
- * @link		https://codeigniter.com/user_guide/
- * @link		http://php.net/hash
+ * @link		https://codeigniter.com/userguide3/
+ * @link		https://secure.php.net/hash
  */
 
 // ------------------------------------------------------------------------
@@ -174,8 +175,8 @@ if ( ! function_exists('hash_pbkdf2'))
 		}
 
 		$hash_length = defined('MB_OVERLOAD_STRING')
-			? mb_strlen(hash($algo, '', TRUE), '8bit')
-			: strlen(hash($algo, '', TRUE));
+			? mb_strlen(hash($algo, NULL, TRUE), '8bit')
+			: strlen(hash($algo, NULL, TRUE));
 		empty($length) && $length = $hash_length;
 
 		// Pre-hash password inputs longer than the algorithm's block size

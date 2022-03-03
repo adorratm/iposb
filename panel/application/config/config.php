@@ -386,6 +386,7 @@ $config['sess_save_path'] = "ci_sessions";
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 0;
 $config['sess_regenerate_destroy'] = FALSE;
+$config['sess_samesite'] = 'Lax';
 
 /*
 |--------------------------------------------------------------------------
@@ -407,6 +408,7 @@ $config['cookie_domain']    = '';
 $config['cookie_path']        = '/';
 $config['cookie_secure']    = FALSE;
 $config['cookie_httponly']     = FALSE;
+$config['cookie_samesite'] = 'Lax';
 
 /*
 |--------------------------------------------------------------------------

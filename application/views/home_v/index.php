@@ -307,7 +307,7 @@
                     <ul>
                         <li>
                             <div class="icon">
-                                <img src="<?= asset_url("public/images/campus/1.webp")?>" alt="image">
+                                <img src="<?= get_picture("settings_v",$settings->logo)?>" alt="image">
                             </div>
                             <div class="text">
                                 <h4>Do More, Stress Less</h4>
@@ -320,7 +320,7 @@
                         </li>
                         <li>
                             <div class="icon">
-                                <img src="<?= asset_url("public/images/campus/2.webp")?>" alt="image">
+                                <img src="<?= get_picture("settings_v",$settings->logo)?>" alt="image">
                             </div>
                             <div class="text">
                                 <h4>The Business Intelligence</h4>
@@ -333,7 +333,7 @@
                         </li>
                         <li>
                             <div class="icon">
-                                <img src="<?= asset_url("public/images/campus/3.webp")?>" alt="image">
+                                <img src="<?= get_picture("settings_v",$settings->logo)?>" alt="image">
                             </div>
                             <div class="text">
                                 <h4>System Administration</h4>
@@ -349,7 +349,7 @@
             </div>
             <div class="col-lg-5">
                 <div class="about__image">
-                    <img src="<?= asset_url("public/images/campus/4.webp")?>" alt="image">
+                    <img src="<?= get_picture("settings_v",$settings->logo)?>" alt="image">
                     <img class="shape-1" src="<?= asset_url("public/images/campus/shape.webp")?>" alt="image">
                 </div>
             </div>
