@@ -81,7 +81,7 @@
                                 <?php foreach ($latestServices as $key => $value) : ?>
                                     <?php if (strtotime($value->sharedAt) <= strtotime("now")) : ?>
                                         <li>
-                                            <a href="<?= base_url(lang("routes_services") . "/" . lang("routes_service_detail") . "/{$value->seo_url}") ?>"><span class="post-images"><img width="1920" height="1280" loading="lazy" data-src="<?= get_picture("services_v", $value->img_url) ?>" alt="<?= $value->title ?>" class="lazyload img-fluid" width="150" height="150"></span></a>
+                                            <a rel="dofollow" href="<?= base_url(lang("routes_services") . "/" . lang("routes_service_detail") . "/{$value->seo_url}") ?>" title="<?= $value->title ?>"><span class="post-images"><img width="1920" height="1280" loading="lazy" data-src="<?= get_picture("services_v", $value->img_url) ?>" alt="<?= $value->title ?>" class="lazyload img-fluid" width="150" height="150"></span></a>
                                             <div class="titles">
                                                 <h4><a rel="dofollow" href="<?= base_url(lang("routes_services") . "/" . lang("routes_service_detail") . "/{$value->seo_url}") ?>" title="<?= $value->title ?>"><?= $value->title ?></a></h4>
                                             </div>

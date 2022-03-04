@@ -151,7 +151,11 @@ class Home extends MY_Controller
          * Slides
          */
         $this->viewData->slides = $this->general_model->get_all("slides", null, "rank ASC", ["isActive" => 1, "lang" => $this->viewData->lang]);
-
+        /**
+         * Services
+         */
+        $this->viewData->services = $this->general_model->get_all("services",null,"rank ASC",["isActive" => 1, "lang" => $this->viewData->lang]);
+        /*
         $wheres["p.isActive"] = 1;
         $wheres["pi.isCover"] = 1;
         $wheres["p.isWeddingProduct"] = 0;
@@ -160,29 +164,37 @@ class Home extends MY_Controller
         $select = "(SELECT SUM(visits) FROM product_views pv WHERE pv.product_id = p.id ) AS visits,GROUP_CONCAT(pc.seo_url) category_seos,GROUP_CONCAT(pc.title) category_titles,GROUP_CONCAT(pc.id) category_ids,p.id,p.title,p.url,pi.url img_url,IFNULL(pvg.price,p.price) price,IFNULL(pvg.discount,p.discount) discount,IFNULL(pvg.stock,p.stock) stock,IFNULL(pvg.stockStatus,p.stockStatus) stockStatus,p.isDiscount isDiscount,p.sharedAt";
         $distinct = true;
         $groupBy = ["p.id", "pwc.product_id"];
+        */
         /**
          * Get Suggested Products
          */
+        /*
         $wheres["p.isSuggested"] = 1;
         $this->viewData->suggestedProducts = $this->general_model->get_all("products p", $select, "RAND()", $wheres, [], $joins, [10], [], $distinct, $groupBy);
         unset($wheres["p.isSuggested"]);
+        */
         /**
          * Get New Products
          */
+        /*
         $wheres["p.isNew"] = 1;
         $this->viewData->newProducts = $this->general_model->get_all("products p", $select, "p.id DESC", $wheres, [], $joins, [10], [], $distinct, $groupBy);
         unset($wheres["p.isNew"]);
+        */
         /**
          * Get Discount Products
          */
+        /*
         $wheres["p.isDiscount"] = 1;
         $this->viewData->discountProducts = $this->general_model->get_all("products p", $select, "RAND()", $wheres, [], $joins, [10], [], $distinct, $groupBy);
         unset($wheres["p.isDiscount"]);
+        */
         /**
          * Get Mostly Viewed Products
          */
+        /*
         $this->viewData->mostlyViewedProducts = $this->general_model->get_all("products p", $select, "visits DESC", $wheres, [], $joins, [10], [], $distinct, $groupBy);
-
+        */
         //$this->viewData->stories = $this->general_model->get_all("stories", null, "rank ASC", ["isActive" => 1, "lang" => $this->viewData->lang]);
         //$this->viewData->story_items = $this->general_model->get_all("story_items", null, "rank ASC", ["isActive" => 1, "lang" => $this->viewData->lang]);
 
